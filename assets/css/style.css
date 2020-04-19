@@ -5,6 +5,7 @@ body{
     background-color:  #00ccff;
     box-sizing: border-box;
     margin: 0;
+    display:grid;
 }
 h1 {
     font-family: Roboto, sans-serif;
@@ -13,8 +14,9 @@ h1 {
     
 }
 .memory-container{
-    margin: 40px auto;
+    margin: 20px auto;
     display: flex;
-
-
+    grid-template-columns: 60px 60px 60px;
+    justify-content: center;
+    background-color:  #9933ff;
 }
