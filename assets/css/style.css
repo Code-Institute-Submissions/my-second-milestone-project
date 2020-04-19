@@ -5,7 +5,7 @@ body{
     background-color:  #00ccff;
     box-sizing: border-box;
     margin: 0;
-    display:grid;
+    display:flex;
 }
 h1 {
     font-family: Roboto, sans-serif;
@@ -14,9 +14,18 @@ h1 {
     
 }
 .memory-container{
-    margin: 20px auto;
-    display: flex;
-    grid-template-columns: 60px 60px 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    background-color:  #9933ff;
+    grid-gap: 10px;
+   
+}
+.memory-board-container{
+    grid-row-start: auto;
+    grid-column: 1;
+}
+.card{
+    height:150px;
+    width: 150px;
+ background-color:  #33293d;
 }
