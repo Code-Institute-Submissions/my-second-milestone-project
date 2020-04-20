@@ -14,15 +14,17 @@ h1 {
     
 }
 .memory-container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    grid-gap: 10px;
-   
-}
+    margin: 0, auto;
+    max-width: 800px;
+    justify-items: center;
+   }
 .memory-board-container{
-    grid-row-start: auto;
-    grid-column: 1;
+    display: grid;
+    /*grid-template-columns: 20% 20% 20% 20%;*/
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    grid-gap: 10px;
+    justify-content: space-between;
 }
 .card{
     height:150px;
