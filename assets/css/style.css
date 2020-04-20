@@ -5,29 +5,31 @@ body{
     background-color:  #00ccff;
     box-sizing: border-box;
     margin: 0;
-    display:flex;
+    display:grid;
 }
-h1 {
+.memory-title {
     font-family: Roboto, sans-serif;
+    font-size: 6em;
     text-align: center;
     color:#404040;
     
 }
 .memory-container{
-    margin: 0, auto;
-    max-width: 800px;
-    justify-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
 .memory-board-container{
     display: grid;
     /*grid-template-columns: 20% 20% 20% 20%;*/
     grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px ;
+    grid-row-gap: 10px;
     justify-items: center;
-    grid-gap: 10px;
-    justify-content: space-between;
+    
 }
 .card{
     height:150px;
     width: 150px;
- background-color:  #33293d;
+    background-color:  #33293d;
 }
