@@ -15,12 +15,13 @@ body{
     
 }
 .memory-container{
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
    }
 .memory-board-container{
-    margin: auto;
+    
     width: 600px;
     height: 600px;
     display: grid;
@@ -38,7 +39,15 @@ body{
     background-color:  #33293d;
     position: relative;
 }
-.front-face-card, back-face-card {
+.back-face-card {   
+
+transform: rotateY(0);
+}
+.front-face-card {
+    transform: rotateY(0);
+}
+
+.front-face-card .back-face-card {
 width: 100%;
 height: 100%;
 padding:10px;
