@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+*{
+box-sizing: border-box; /*making them look the same in all browsers*/
+}
+html{
+    min-height: 100vh;
+}
 body{
     height: 100vh;
     font-family: Roboto, sans-serif;
     background-color:  #00ccff;
-    box-sizing: border-box;
     margin: 0;
-    display:flex;
+    
 }
 .memory-title {
     font-family: Roboto, sans-serif;
@@ -18,38 +23,47 @@ body{
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     
    }
 .memory-board-container{
-    width: 600px;
-    height: 600px;
     display: grid;
     /*grid-template-columns: 20% 20% 20% 20%;*/
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 10px ;
-    grid-row-gap: 10px;
+    grid-gap: 10px;
+    margin: 50px;
     justify-items: center;
     perspective: 600px; /*depth*/
     
-    
-}
-.card{
-    position: relative;
-    width:100% ;
-    height:100% ;
-    background-color:  #33293d;
-    
 }
 
+.memory-info{
+    grid-column: 1 / -1; /*first to last so it´s on the first section in the board*/
+    display: flex;
+
+}
+
+.card{
+    position: relative;
+    width:175px;
+    height:125px ;  
+
+}
+.back-face-card .img .gear_img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
 
 .back-face-card {   
 background-color: #33293d;
-transform: rotateY(-180deg);
+transform: rotateY();
 
 }
+
 .front-face-card {
-transform: rotateY(180deg);
+transform: rotateY();
 }
 
 .front-face-card .back-face-card {
@@ -60,6 +74,8 @@ padding:10px;
 justify-content: center;
 align-items: center;
 overflow: hidden;
-backface-visibility: hidden; /* in css-tricks and rotate card*/
+-webkit-backface-visibility: hidden; /* in css-tricks  rotate card*/
+backface-visibility: hidden;
+background-color: #404040;
 }
 
