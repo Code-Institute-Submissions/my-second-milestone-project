@@ -17,7 +17,6 @@ body{
 .memory-container{
     margin: auto;
     display: flex;
-    flex-wrap: wrap; /* prevent from multiple rows*/
     align-items: center;
     justify-content: center;
     
@@ -42,12 +41,15 @@ body{
     background-color:  #33293d;
     
 }
-.back-face-card {   
 
+
+.back-face-card {   
+background-color: #33293d;
+transform: rotateY(-180deg);
 
 }
 .front-face-card {
-transform: rotateX(180deg)
+transform: rotateY(180deg);
 }
 
 .front-face-card .back-face-card {
