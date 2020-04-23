@@ -17,11 +17,12 @@ body{
 .memory-container{
     margin: auto;
     display: flex;
+    flex-wrap: wrap; /* prevent from multiple rows*/
     align-items: center;
     justify-content: center;
+    
    }
 .memory-board-container{
-    
     width: 600px;
     height: 600px;
     display: grid;
@@ -34,26 +35,27 @@ body{
     
 }
 .card{
+    position: relative;
     width:100% ;
     height:100% ;
     background-color:  #33293d;
-    position: relative;
+    
 }
 .back-face-card {   
 
-transform: rotateY(0);
+
 }
 .front-face-card {
-    transform: rotateY(0);
+transform: rotateX(180deg)
 }
 
 .front-face-card .back-face-card {
+position: absolute;
 width: 100%;
 height: 100%;
 padding:10px;
 justify-content: center;
 align-items: center;
-position: absolute;
 overflow: hidden;
 background: #66b3ff;
 }
