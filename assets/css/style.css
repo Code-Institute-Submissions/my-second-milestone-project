@@ -58,17 +58,34 @@ body{
     justify-content: stretch;
     transition: all 0.5s ease;
     transform-style: preserve-3d;
+    position: relative;
 }
 
-.card-backside .card-frontside{
-backface-visibility: hidden;
+.card .card-back{
+   width: 100%;
+    height: 100%;
+    padding:5px;
+    border-radius:5px;
+    z-index:2;
+    transform: rotateY(-180deg);
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden; 
 }
-.card-backside img{
-width: 100%;
-height: 100%;
-object-fit: cover;
-top:0;
-bottom:0;
+.card .card-front{
+   width: 100%;
+    height: 100%;
+    padding:5px;
+    border-radius:5px;
+    z-index:3;
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden; 
+}
+.card:hover .card-back{
+    transform:rotateY(0deg);
+    z-index: 3;
+}
+.card:hover .card-front{
+    transform:rotateY(180deg);
 }
 
 
