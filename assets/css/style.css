@@ -31,8 +31,8 @@ body{
 }
 .memory-info-container{
    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3. auto);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     justify-items: stretch;
@@ -97,7 +97,12 @@ img {
     
 }
 
+@media (max-width :600px){
+    .memory-container{
+        grid-template-columns: repeat(2, auto);
+    }
 
+}
 
 
 
