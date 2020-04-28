@@ -14,7 +14,7 @@ function memoryBoard(){
         
         overlays.forEach(overlay => {
             overlay.addEventListener("click", () => {
-                overlay.classList.removable("visable");//for the gamer//
+                overlay.classList.removable("visible");//for the gamer//
 
             });
         });
