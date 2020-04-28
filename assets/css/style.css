@@ -32,19 +32,19 @@ body{
 .memory-info-container{
    display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(3. auto);
+    grid-template-rows: repeat(3, auto);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     justify-items: stretch;
     align-items: stretch;
 }
-.memory-info h2{
+.memory-info-container .memory-info {
     grid-column: 1/ -1;
     display:flex;
-    justify-content: space-between;
     font-family: Roboto, sans-serif;
     color: #000;
     font-size: 4em;
+    justify-content: space-between
 }
 
 .card{
@@ -97,12 +97,45 @@ img {
     
 }
 
+.overlay-text{
+    position:fixed; /*so it dosent move and dos not shows*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /*spred out over*/
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    color:#404040;
+    font-family: Roboto, sans-serif;
+}
+.overlay-text-small{
+    font-size: .3em; /*30% of larger size text*/
+}
+
+.overlay-text-visable{
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+    from{
+        background-color: rgba(0,0,0,0);
+        font-size: 0;
+    }
+    to{
+        background-color: rgba(0,0,0.8);
+        font-size: 10em;
+    }
+}
 @media (max-width :600px){
     .memory-container{
         grid-template-columns: repeat(2, auto);
     }
-
 }
+
+
 
 
 
