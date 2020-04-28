@@ -113,10 +113,12 @@ img {
     font-size: .3em; /*30% of larger size text*/
 }
 
-.overlay-text-visable{
+.overlay-text{
     display: flex;
     flex-direction: column;
     animation: overlay-grow 500ms forwards;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes overlay-grow {
@@ -133,8 +135,13 @@ img {
     .memory-container{
         grid-template-columns: repeat(2, auto);
     }
-}
 
+
+.memory-info-container{ /*for smaller screens*/
+    flex-direction: column;
+    align-items: center;
+    }
+}
 
 
 
