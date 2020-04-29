@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", memoryboard ())
+document.addEventListener("DOMContentLoaded", memoryboard ());
 
 const card = document.querySelectorAll(".card")
 
@@ -8,9 +8,12 @@ function memoryBoard(){
         var card = document.createElement ("img");
         card.setAttribute ("src", "assets/images/gears-background.png");
         card.setAttribute("data-id", i);
-        let overlays = Array.from(document.getElementsByClassName("overlay-text"));
-        let cards = Array.from (document.getElementsByClassName("card"));
+            card.addEventListener("click", flipcard)
+                //flipcard to the (card)//
+            }
+    }
         
+        let overlays = Array.from(document.getElementsByClassName("overlay-text"));
         
         overlays.forEach(overlay => {
             overlay.addEventListener("click", () => {
@@ -19,13 +22,5 @@ function memoryBoard(){
             });
         });
 
-        cards.forEach(card => {
-            card.addEventListener("click",() => {
-                //flipcard to the (card)//
-            });
-    });
-}
-
-
-
+        
 
