@@ -61,13 +61,11 @@ body{
     
 }
 .card:active {
-transform: scale (.97);
-transition: transform .2;
+transform:scale(.97);
+transition: transform .2s;
 }
 
 
-
-}
 
 /*.card:hover {*/
   /*-ms-transform: rotateY(-180deg); /* IE 9 */

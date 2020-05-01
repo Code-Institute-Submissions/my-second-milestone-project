@@ -2,7 +2,7 @@ document.addEventListener("DOMContentloaded", ready ());
 
 function ready(){
     let overlays = Array.from (document.getElementsByClassName ("overlay-text")); /*without array its just html*/
-    let cards =Array.from (document.getElementsByClassName("card"));
+    let cards =Array.from (document.getElementsByClassName(".card"));
 
     overlays.forEach(overlay =>{
         overlay.addEventListener("click", () => {
@@ -17,14 +17,11 @@ function ready(){
 const card = document.querySelectorAll(".card");
 
 
-
-
-
-
+ 
 
 
 card.forEach(card => {
-    card.addEventListener("click", () => {
-
-    });
+    card.addEventListener("click");
+    
 });
+
