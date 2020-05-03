@@ -1,19 +1,28 @@
-document.addEventListener("DOMContentloaded", ready ());
+$(document).ready(function() {
 
-function ready(){
-    let overlays = Array.from (document.getElementsByClassName ("overlay-text")); /*without array its just html*/
-    let card = Array.from (document.getElementsByClassName(".card"));
-
-    overlays.forEach(overlay =>{
-        overlay.addEventListener("click", () => {
-          overlay.classlist.remove ("visable");  
-        });
-    });
-
-}
+    $ (".overlay-text").forEach (overlay);
+     $(this).on ("click", function(){
+         $(this).classList.remove("visible")
+     }
+     
 
 
-const cards = document.querySelectorAll(".card");
+
+
+    
+
+
+
+});
+
+
+
+
+
+
+
+
+
 
 //memory board length and add flipcard later  
 //function memoryBoard(){}0-12
@@ -23,18 +32,21 @@ const cards = document.querySelectorAll(".card");
 //function checkForMatch(){}
 
 
-let flippedCard = false;
-let firstCard , secondCard;
+//let flippedCard = false;
+//let firstCard , secondCard;
 
 //add first and second card, witch card flips
- function flipcard () {
-     if (!flippedCard) { //first card click
-        flippedCard = true;
-        firstCard = this; //.card
-        this.classlist.add ("flip");
-        console.log ({flippedCard , firstCard});
-     }
+ //function flipcard () {
+     //if (!flippedCard) { //first card click
+        //flippedCard = true;
+        //firstCard = this; //.card
+        //this.classlist.add ("flip");
+        //console.log ({flippedCard , firstCard});
+     //}
     
 
- }
-cards.forEach (card => card .addEventListener("click", flipCard));
+
+ 
+cards.forEach (card => card .addEventListener("click", () =>){
+    //flipcard (card);
+}
