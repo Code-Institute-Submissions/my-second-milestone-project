@@ -59,17 +59,17 @@ body{
     transition: transform 1.5s;
     }
 
-.card.flip{
+/*.card.flip{
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
-.card:hover {
+/*.card:hover {
   -ms-transform: rotateY(-180deg); /* IE 9 */
- -webkit-transform: rotateY(-180deg); /* Safari Chrome */
-  transform: rotateY(-180deg);
-}
+ /*-webkit-transform: rotateY(-180deg); /* Safari Chrome */
+ /* transform: rotateY(-180deg);
+}*/
 
 img {
     width: 100%;
