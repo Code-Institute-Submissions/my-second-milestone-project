@@ -1,14 +1,18 @@
 $(document).ready(function() {
 
-    $(".card").click(function() {
-        $(this).trigger();
+    $(".card").on("click", function(){ 
+        $(this).css("active");
+
+
+        });
+
         
 
     });
 
-    $("#startButton").on("click", function(){
+   /* $("#startButton").on("click", function(){
         $(".card").content();{
-            $.each (this. get(), function(index, el) { //el reference object
+            $.each (this. get(), function(el) { //el reference object
                 var $el = $(el);
                 var $find =$el.children();
 
@@ -21,5 +25,5 @@ $(document).ready(function() {
         }
 
         
-    });
+    });*/
 });
