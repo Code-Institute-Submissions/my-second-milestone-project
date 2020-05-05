@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     $(".card").on("click", function(){ 
-        $(this).css("active");
+        $(this).css("img");
 
 
         });
@@ -10,20 +10,14 @@ $(document).ready(function() {
 
     });
 
-   /* $("#startButton").on("click", function(){
-        $(".card").content();{
-            $.each (this. get(), function(el) { //el reference object
-                var $el = $(el);
-                var $find =$el.children();
+    $("#startButton").on("click", function(){
+        $(".card-front").length();
+        
 
-                $find.sort(function(){
-                    return 0.5 - Math.random();
-                });
-                $el.empty ();
-                $find.appendTo($el);
-            });
-        }
 
         
-    });*/
-});
+        
+        
+
+        
+    });
