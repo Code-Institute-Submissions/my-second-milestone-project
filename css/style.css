@@ -14,12 +14,22 @@ body{
     padding: 0;
     
 }
-.memory-title {
+#startButton {
+    display: block;
+    border:none;
+    background-color:aqua;
+    margin:auto;
+    padding: 15px 30px;
+    align-items: center;
+    justify-content: center;
     font-family: Roboto, sans-serif;
-    font-size: 6em;
+    font-size: 4em;
     text-align: center;
     color:#404040;
     
+}
+.start-text-small {
+    font-size: 45px;
 }
 
 .memory-container{
@@ -59,17 +69,13 @@ body{
     transition: transform 1.5s;
     }
 
-/*.card.flip{
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
 
-/*.card:hover {
+
+.card:active {
   -ms-transform: rotateY(-180deg); /* IE 9 */
- /*-webkit-transform: rotateY(-180deg); /* Safari Chrome */
- /* transform: rotateY(-180deg);
-}*/
+ -webkit-transform: rotateY(-180deg); /* Safari Chrome */
+  transform: rotateY(-180deg);
+}
 
 img {
     width: 100%;
