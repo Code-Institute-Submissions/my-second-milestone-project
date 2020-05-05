@@ -12,6 +12,7 @@ body{
     background-color:  #00ccff;
     margin: 0;
     padding: 0;
+
     
 }
 #startButton {
@@ -83,6 +84,7 @@ img {
     padding:5px;
     border-radius:5px;
     z-index: 2;
+    transition: transform 500ms ease-in-out;
     position: absolute;
 }
 .card .card-back{
@@ -91,12 +93,12 @@ img {
     padding:5px;
     border-radius:5px;
     z-index: 3;
+    transition: transform 500ms ease-in-out;
     backface-visibility: hidden; 
     position: absolute;
     
 }
 .card:active .card-back{
-    
    -ms-transform: rotateY(-180deg);
    -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
@@ -105,41 +107,8 @@ img {
 .card:active .card-front {
     transform: rotateY(0);
 }
-/*.overlay-text{
-    display: none; /*unless visable class on*/
-   /* position:fixed; /*so it dosent move and dos not shows*/
-   /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; /*spred out over*/
-    /*align-items: center;
-    justify-content: center;
-    z-index: 100; /*ontop*/
-  /*  color:#404040;
-    font-family: Roboto, sans-serif;
-}
-.overlay-text-small{
-    font-size: .3em; /*30% of larger size text*/
-}
 
-/*.overlay-text .visible {
-    display: flex;
-    flex-direction: column;
-    animation: overlay-grow 500ms forwards;
-    align-items: center;
-    justify-content: center;*/
-}
 
-/*@keyframes overlay-grow {
-    from{
-        background-color: rgba(0,0,0,0);
-        font-size: 0;
-    }
-    to{
-        background-color: rgba(0,0,0.8);
-        font-size: 10em;
-    }*/
-}
 @media (max-width :600px){
     .memory-container{
         grid-template-columns: repeat(2, auto);
