@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Anton:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
 *{
 box-sizing: border-box; /*making them look the same in all browsers*/
 }
@@ -8,14 +8,15 @@ html{
 body{
     height: 100vh;
     width: 100vw;
-    font-family: Roboto, sans-serif;
-    background-color:  #00ccff;
+    font-family: Anton, sans-serif;
+    background-image: url (assets/images/gears-background);
+    background-color: #00ccff;
     margin: 0;
     padding: 0;
 
     
 }
-#startButton {
+#startButton h1 {
     display: block;
     border:none;
     background-color:aqua;
@@ -23,7 +24,7 @@ body{
     padding: 15px 30px;
     align-items: center;
     justify-content: center;
-    font-family: Roboto, sans-serif;
+    font-family: Anton, sans-serif;
     font-size: 4em;
     text-align: center;
     color:#404040;
@@ -52,7 +53,7 @@ body{
 .memory-info {
     grid-column: 1/ -1;
     display:flex;
-    font-family: Roboto, sans-serif;
+    font-family: Anton, sans-serif;
     color: #000;
     font-size: 2em;
     justify-content: space-evenly;
