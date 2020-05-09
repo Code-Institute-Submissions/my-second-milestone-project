@@ -1,15 +1,26 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 
-   // $(".card").on("click", function(){
-        //$("this").click ();
+
+    $("#memoryCard").on("click", function(){
+        $(this).click ("card");
+        $(this).
     
-   // })
+   });
+
 $("#startButton").click(function(){
-$(this).css("color", green);
-});
+$("#time-remaining").setInterval().text("time-remaining" ++, 1000);
+},
 
 
-//shuffle cards
+   //shuffle//
+$("#startButton").click(function(){
+    $("#memoryCards").children("card");
+$(".card").Math.random((Math.random()* 13) + 3);
+
+})
+
+
+
 
 //match cards
 
@@ -26,4 +37,4 @@ $(this).css("color", green);
    // $(this).each("cards");
 
 
-})
+}*/
