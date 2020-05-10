@@ -6,16 +6,24 @@ $(document).ready(function(){
         $(this).
         })
      });*/
-var count = 0;
-$("#startButton").click(function(){
-    $("#time-remaining").html(++count);
-    if (count === 0){
+var i = 1;
+$("#startButton").click(function(e){
+setInterval(function(){
+    $("#time-remaining").html(i)
+
+    i++;
+     }, 1000 );
+    if (i === 60){
         alert ("sorry, out of time");
         clearInterval(counter);
-    }
-
-    },1000 );
+    }  
 });
+
+$(".resetButton").click(function(e){
+    i = 0;
+})
+
+})
 
    //shuffle//
 /*$("#startButton").click(function(){
