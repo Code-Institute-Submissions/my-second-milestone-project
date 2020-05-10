@@ -71,7 +71,7 @@ h1 {
   justify-content: space-between;
 }
 
-#memoryCard {
+.memory-info-container .card {
   width: 125px;
   height: 175px;
   display: flex;
@@ -121,9 +121,9 @@ img {
 
 /*media queries*/
 
-@media screen and (max-width: 600px) {
-  .memory-container {
+/*@media screen and (max-width: 600px) {
+   {
   
-  }
+  }*/
 
 }
