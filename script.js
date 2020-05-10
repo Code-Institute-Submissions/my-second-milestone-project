@@ -1,23 +1,28 @@
-/*$(document).ready(function(){
+$(document).ready(function(){
 
 
-    $("#memoryCard").on("click", function(){
-        $(this).click ("card");
+    /*$(".card").on("click", function(){
+        $(".card-front").not("matched").click(function(){
         $(this).
-    
-   });
-
+        })
+     });*/
+var count = 0;
 $("#startButton").click(function(){
-$("#time-remaining").setInterval().text("time-remaining" ++, 1000);
-},
+    $("#time-remaining").html(++count);
+    if (count === 0){
+        alert ("sorry, out of time");
+        clearInterval(counter);
+    }
 
+    },1000 );
+});
 
    //shuffle//
-$("#startButton").click(function(){
-    $("#memoryCards").children("card");
+/*$("#startButton").click(function(){
+    $(".memory-container").children("card");
 $(".card").Math.random((Math.random()* 13) + 3);
 
-})
+})*/
 
 
 
@@ -36,5 +41,3 @@ $(".card").Math.random((Math.random()* 13) + 3);
    // $(".memory-container").class("totalTime, cards");
    // $(this).each("cards");
 
-
-}*/
