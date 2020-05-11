@@ -6,6 +6,15 @@ $(document).ready(function(){
         $(this).
         })
      });*/
+ //shuffle//
+/*$("#startButton").click(function(){
+    $("#memory-container").children();
+    $("div.img").each(function(){
+$(this).append("img src = \"" + Math.random(1+ Math.random()*16) + ".png\"");
+})
+});*/
+
+//start time//
 var i = 1;
 $("#startButton").click(function(e){
 setInterval(function(){
@@ -23,29 +32,22 @@ $(".resetButton").click(function(e){
     i = 0;
 })
 
-})
-
-   //shuffle//
-/*$("#startButton").click(function(){
-    $(".memory-container").children("card");
-$(".card").Math.random((Math.random()* 13) + 3);
-
-})*/
 
 
+   
+
+});
 
 
-//match cards
 
 //win
 
 //loose
 
-//reset/start over
 
 
 
 
-   // $(".memory-container").class("totalTime, cards");
-   // $(this).each("cards");
+
+  
 
