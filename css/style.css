@@ -80,8 +80,10 @@ h1 {
   justify-content: stretch;
   transform-style: preserve-3d;
   position: relative;
-  -webkit-transition: transform 0.9s ease-in-out; /* Safari and Chrome */
-  transition: transform 0.9s ease-in-out;
+  transition-duration:300ms;
+  -webkit-transition-duration: 0.3s; 
+  transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
 }
@@ -117,18 +119,16 @@ img {
   -webkit-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
 }
-.card .card-front {
+.card:hover .card-front {
   transform: rotateY(0);
 }
 
 /*media queries*/
 
 @media screen and (min-width: 850px) {
-    .memory-info-container .card {
-        grid-template-columns: repeat(4, fr);
-        
+    
     }
   
-  }
+  
 
 
