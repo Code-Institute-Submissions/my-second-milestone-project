@@ -1,16 +1,16 @@
 $(document).ready(function(){
 
 
-    /*$(".card").on("click", function(){
-        $(".card-front").not("matched").click(function(){
+    /*$("#memory-container").on("click", function(){
+        $("div.ul).not("matched").click(function(){
         $(this).
         })
      });*/
  //shuffle//
 /*$("#startButton").click(function(){
     $("#memory-container").children();
-    $("div.img").each(function(){
-$(this).append("img src = \"" + Math.random(1+ Math.random()*16) + ".png\"");
+    $("div.card").each(function(){
+$(this).
 })
 });*/
 
