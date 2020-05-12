@@ -1,13 +1,15 @@
 $(document).ready(function(){
 
-
+/*var myArray = { cards: ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"],
+}*/
+    $(".memory-info-container").click(function(){
+        $(".card").click(function(){
+            $(this).each("img");
+            console.log("cliked")
+        });
+    });
     
-
-    /*$("#memory-container").on("click", function(){
-        $("div.ul).not("matched").click(function(){
-        $(this).
-        })
-     });*/
+   
  //shuffle//
 /*$("#startButton").click(function(){
     $("#memory-container").children();
