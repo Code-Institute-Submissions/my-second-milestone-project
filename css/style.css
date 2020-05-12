@@ -107,10 +107,9 @@ img {
 .card .card-back {
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 0px;
   border-radius: 5px;
   z-index: 3;
-  transition: all 500ms ease 0;
   backface-visibility: hidden;
   position: absolute;
 }
