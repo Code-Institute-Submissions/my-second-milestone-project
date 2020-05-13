@@ -1,10 +1,11 @@
 $(document).ready(function() {
     $("#memory-container").click(function() {
-        $(".card").click(function() {
-        $(this).setTimeout(() => {
-                
-            },5000);
+        $(".card").mouseover();
+        $(this).setTimeout(function(){
+            
+        }, 1000);
+        
             
         });
     });
-})
+
