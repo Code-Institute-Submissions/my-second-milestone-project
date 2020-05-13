@@ -103,6 +103,10 @@ img {
   z-index: 2;
   transition: all 500ms ease 0;
   position: absolute;
+   -ms-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+ 
 }
 .card .card-back {
   width: 100%;
@@ -112,15 +116,13 @@ img {
   z-index: 3;
   backface-visibility: hidden;
   position: absolute;
+  transform: rotateY(0);
+ 
 }
-.card:hover .card-back {
-  -ms-transform: rotateY(-180deg);
-  -webkit-transform: rotateY(-180deg);
+.card:active {
   transform: rotateY(-180deg);
 }
-.card:hover .card-front {
-  transform: rotateY(0);
-}
+
 
 /*media queries*/
 
