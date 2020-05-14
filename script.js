@@ -1,15 +1,20 @@
 $(document).ready(function() {
     $("#memory-container").click(function() {
-        $(".card").manual().each();
+        $(".card").click(function(){
+            $("#card-back-"+this.id).hide();
+            $("#card-front-"+this.id).show();
+
+        })
+        
 });
 
 
 
 
     
-/*onclick="Display1(); Display2()";
 
-$("#startButton").onclick(function(){
+
+/*$("#startButton").click(function(){
    setInterval(function(){
        var i = 30;
       $("#time-remaining").html(i)
@@ -18,13 +23,14 @@ $("#startButton").onclick(function(){
     if (i === 0 ){
         clearInterval("#startButton");
         alert("Time´s Up!");
-        };
+        };*
           
-});
-    //resetTimer//
-    $("#resetButton").click(function(e){
-        i = 30;
 });*/
+
+    //resetTimer//
+    $("#resetButton").click(function(){
+        i = 30;
+});
 
 
 var Image = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
