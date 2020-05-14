@@ -14,18 +14,21 @@ $(document).ready(function() {
     
 
 
-/*$("#startButton").click(function(){
+("#startButton").click(function(){
    setInterval(function(){
-       var i = 30;
-      $("#time-remaining").html(i)
-      i--;
-       }, 1000);
-    if (i === 0 ){
-        clearInterval("#startButton");
-        alert("Time´s Up!");
-        };*
-          
-});*/
+   var i = 30;
+   $("#time-remaining").html(i);
+   i--;
+   }, 1000);
+   if (i === 0 ){
+      clearInterval("#startButton");
+      alert("Time´s Up!");
+    };
+    var Image = [
+	    "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"
+	    ];
+    $(this).trigger(Math.floor(Math.random() * Image.length));
+})
 
     //resetTimer//
     $("#resetButton").click(function(){
@@ -33,12 +36,7 @@ $(document).ready(function() {
 });
 
 
-var Image = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-$("#startButton").click(function(){
-$(".card").select();
-$(this).trigger(Math.floor(Math.random() * Image.length));
 
-});
 
 //flips//
 var count = 0;
