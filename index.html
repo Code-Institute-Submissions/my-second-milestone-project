@@ -16,15 +16,15 @@
 
 <h1>Robot match</h1>
 <div class="buttons">
-<button id= "startButton" type="button">Click here to start</button>
-<button class= "resetButton" type="button">Reset</button>
+<button id= "startButton" type="button" onclick="Display1(); Display2()">Click here to start</button>
+<button id= "resetButton" type="button">Reset</button>
 </div>
 
 <div id="memory-container">
 
 <ul class="memory-info-container fluid">
 <div class="memory-info">
-Time: <span id="time-remaining">0</span> <!---span to not rewrite entire section, find it in JS--->
+Time: <span id="time-remaining">30</span> <!---span to not rewrite entire section, find it in JS--->
 </div>
 <div class="memory-info">
 Flips: <span id="flips">0</span>
@@ -64,9 +64,9 @@ Flips: <span id="flips">0</span>
 
 <div class="card">
 <img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card" src="assets/images/excited-robot.png" alt="excited robot">
-
+<img class="card-front" src="assets/images/excited-robot.png" alt="excited robot">
 </div>
+
 <div class="card">
 <img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
 <img class="card-front" src="assets/images/excited-robot.png" alt="excited robot">
