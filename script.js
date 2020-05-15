@@ -3,52 +3,41 @@ $(document).ready(function() {
         $(".card").click(function(){
             $("#card-back-"+this.id).hide();
             $("#card-front-"+this.id).show();
-
-        })
-        
+        });
 });
+   //var i = 10;
+$("#startButton").click(function(){
 
-
-
-
-    
-
-
-("#startButton").click(function(){
-   setInterval(function(){
-   var i = 30;
+    /*let timer= setInterval(function(){
    $("#time-remaining").html(i);
    i--;
    }, 1000);
    if (i === 0 ){
-      clearInterval("#startButton");
-      alert("Time´s Up!");
-    };
-    var Image = [
-	    "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"
-	    ];
-    $(this).trigger(Math.floor(Math.random() * Image.length));
-})
+       clearInterval(timer)
+     };*/
+   var cardValue= [1,2,3,4,5,6,7,8,9,10,11,12],
+   const randomCard = cardValue[Math.floor(Math.random()* 12 + 3)];
 
+   $(".card").each(function(){
+       $(this).attr(randomCard);
+   });
+     });
+    
     //resetTimer//
     $("#resetButton").click(function(){
         i = 30;
-});
+    });
 
 
 
 
 //flips//
 var count = 0;
-$(".card").click(function(e){
+$(".card").click(function(){
     $(this).each(function(){
     $("#flips").html(count++);
     });
 });
-$("#resetButton").click(function(e){
-
-}); 
-
 
 });
 
