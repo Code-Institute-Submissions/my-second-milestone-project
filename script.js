@@ -21,14 +21,19 @@ setInterval(function(){
 
    var numbers= ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
     
-   function random (cards){
+   function random(cards){
        return Math.floor(Math.random() * cards);
        }
-   var r = random(numbers.length);
+ // var r = random(numbers.length);
    
    //var random= Math.floor(Math.random() * numbers.length);
-console.log(numbers[r]);
-     
+//console.log(numbers[r]);
+$(".card").each(function() {
+    var r = random(numbers.length);
+$(this).addClass(numbers[r]); 
+}
+
+
 });
    
   
