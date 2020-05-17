@@ -20,8 +20,14 @@ setInterval(function(){
    
 
    var numbers= ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-     var random= Math.floor(Math.random() * numbers.length);
-console.log(numbers[random]);
+    
+   function random (cards){
+       return Math.floor(Math.random() * cards);
+       }
+   var r = random(numbers.length);
+   
+   //var random= Math.floor(Math.random() * numbers.length);
+console.log(numbers[r]);
      
 });
    
