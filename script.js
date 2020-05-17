@@ -8,25 +8,26 @@ $(document).ready(function() {
        });
     });
 
-   //var i = 10;
+   var i = 10;
 $("#startButton").click(function(){
-
-    /*let timer= setInterval(function(){
+setInterval(function(){
    $("#time-remaining").html(i);
    i--;
    }, 1000);
-   if (i === 0 ){
-       clearInterval(timer)
-     };*/
+   if (i == 0 ){
+       clearInterval();
+   }
    
-    const numbers= [1,2,3,4,5,6,7,8,9,10,11,12];
-      $(".card").each(numbers, function(index, value){
-   numbers= [Math.floor(Math.random()* 12 + 3)];
 
-      });
+   var numbers= ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+     var random= Math.floor(Math.random() * numbers.length);
+console.log(numbers[random]);
+     
+});
+   
   
      
-})
+
     //resetTimer//
     $("#resetButton").click(function(){
         i = 30;
