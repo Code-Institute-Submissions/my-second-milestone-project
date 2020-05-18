@@ -5,16 +5,21 @@ $(document).ready(function () {
      
     });
   });
-  const i = 10;
-  $("#startButton").click(function () {
+  
+  $("#startButton").click(function (e) {
+      e.preventDefault();
+      
+  })
+    /*let i = 10;
     let timer = setInterval(function () {
       $("#time-remaining").html(i);
       i--;
     }, 1000);
-    if (i == 0) {
+    if (i === 0) {
       clearInterval(timer);
+      return;
     }
-    timer;
+    
 
     const numbers = [
       1,
@@ -31,14 +36,20 @@ $(document).ready(function () {
       12,
     ];
 
-    function random(cards) {
+    //loop random
+
+
+
+
+    /*function random(cards) {
       return Math.floor(Math.random() * cards);
     }
-    $(".front").each(function () {
+    $(".card").each(function(i, number) {
+        $("#memory-container").append($(".front").append());
       var r = random(numbers.length);
       $(this).addClass(numbers[r]);
     });
-  });
+  });*/
 
   //resetTimer//
   $("#resetButton").click(function () {
