@@ -1,12 +1,13 @@
 $(document).ready(function () {
-  $("#memory-container").click(function () {
-    $(".card").click(function () {
-        $(this).addClass("flipped");
-     
-    });
-  });
   
-  $("#startButton").click(function (e) {
+     $(".card").click(function(){
+         $(this).addclass("flipped");
+        });
+     
+    
+  
+  
+ /* $("#startButton").click(function (e) {
       e.preventDefault();
       
   })
