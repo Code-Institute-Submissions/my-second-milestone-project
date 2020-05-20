@@ -2,14 +2,15 @@ $(document).ready(function () {
   
      $(".card").click(function(){
          $(this).addclass("flipped");
-        });
+        }
+
      
     
   
   
  /* $("#startButton").click(function (e) {
       e.preventDefault();
-      
+      ;
   })
     /*let i = 10;
     let timer = setInterval(function () {
