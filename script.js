@@ -1,10 +1,14 @@
 $(document).ready(function () {
-  $(".card").click(function () {
-    $(this).trigger(".flipped");
-  });
+  //$("#memory-container").click(function() {
+   // (".card").each(function(){
+
+   // });  
+//});
+    
+  
 
   $("#startButton").click(function() {
-    let i = 10;
+   /* let i = 10;
     let TimeOut = setInterval(function () {
       $("#time-remaining").html(i);
       i--;
@@ -13,8 +17,8 @@ $(document).ready(function () {
         clearInterval(TimeOut);
       }
     }, 1000);
-  });
-  /* const Images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"],
+  });*/
+  const Images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"],
     
     function random(Images) {
       return Math.floor(Math.random() * Images);
@@ -23,7 +27,7 @@ $(document).ready(function () {
       var r = random(Images.length);
       $(this).addClass(Images[r]);
     });
-*/
+  });
 
   //flips//
   var count = 0;

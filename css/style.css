@@ -54,6 +54,7 @@ h1 {
   flex-direction: column;
   position:relative;
 }
+
 .memory-info-container{
   display: grid;
   grid-template-columns: repeat(4, auto);
@@ -124,17 +125,28 @@ img {
   transform: rotateY(0);
  
 } 
-.card:hover  {
+.card:hover.flipped {
   transform: rotateY(180deg);
 }
 
 
 /*media queries*/
-
-@media screen and (min-width: 850px) {
-    
+@media screen and (max-width:300px){
+    .col-sm{
+ width:50%;
     }
-  
+}
+
+@media screen and (max-width: 600px) {
+    .col-sm{
+        width: 100%;
+    }
+    }
+  @media screen and (min-width: 768px){ 
+.col-sm{
+    width: 75%;
+}
+  }
   
 
 
