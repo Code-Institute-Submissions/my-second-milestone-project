@@ -1,14 +1,11 @@
-$(document).ready(function () {
-  //$("#memory-container").click(function() {
-   // (".card").each(function(){
+$(document).ready(function() {
+$(".card").click(function(){
+    //alert("been clicked");
+    $(this).addClass(".card flipped");
+});
 
-   // });  
-//});
-    
-  
-
-  $("#startButton").click(function() {
-   /* let i = 10;
+ $("#startButton").click(function() {
+    let i = 10;
     let TimeOut = setInterval(function () {
       $("#time-remaining").html(i);
       i--;
@@ -17,23 +14,26 @@ $(document).ready(function () {
         clearInterval(TimeOut);
       }
     }, 1000);
-  });*/
-  const Images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"],
-    
-    function random(Images) {
-      return Math.floor(Math.random() * Images);
-    }
-    $(".card").each(function() {
-      var r = random(Images.length);
-      $(this).addClass(Images[r]);
-    });
   });
 
-  //flips//
-  var count = 0;
+  /*const Images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"],
+    
+    function random() {
+   
+     $(".card").each(function() {
+       let blend = random(Images.length);
+      $(this).attr(Images[blend]);
+    });
+  };
+  startgame();
+};
+  function flipCount(){
+  
+    var count = 0;
   $(".card").click(function () {
     $(this).each(function () {
       $("#flips").html(count++);
     });
   });
-});
+};*/
+  });
