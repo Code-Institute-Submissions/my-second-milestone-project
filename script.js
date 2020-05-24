@@ -2,11 +2,12 @@ $(document).ready(function() {
 $(".card").click(function() {
     $(this).addClass(".card flipped");
 });
-/*function startgame(){
+
 $("#startButton").click(function(e) {
-//alert(this);
+//alert(this);//
+//timer start//
      e.preventDefault();
-   /* let i = 10;
+    let i = 10;
     let TimeOut = setInterval(function() {
       $("#time-remaining").html(i);
       i--;
@@ -15,31 +16,29 @@ $("#startButton").click(function(e) {
         clearInterval(TimeOut);
       }
     }, 1000);
-});*/
-//});
+    });
 
-//length of memoryboard cards//
+
+//cards loop//
 $("#startButton").click(function(){
 const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-function shuffle(){
-let blend = Images[Math.floor(Math.random()* Images.length)];
-$(".card").each(function(){
-    $(this).attr(blend);
-});
- 
-//match the cards//
-
+for( let i=0; i < Images.length; i++){
+  let random = Math.floor(Math.random()* Images.length);
+   
+     console.log(random);
 };
-shuffle();
+});
 
-
-   //count the flips//
-/*let count = 0;
+     //count the flips//
+let count = 0;
   $(".card").click(function() {
     $(this).each(function() {
       $("#flips").html(count++);
     });
-})*/
+});
+
 
 });
-});
+
+
+
