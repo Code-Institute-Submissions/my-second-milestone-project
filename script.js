@@ -25,7 +25,7 @@ $("#startButton").click(function(){
 const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
 for( let i=0; i < Images.length; i++){
   cards[i] = (Math.floor(Math.random()* Images.length));
-cards[i].click();
+
     // console.log(cards[i]);
 };
 });
