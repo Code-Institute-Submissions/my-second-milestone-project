@@ -21,11 +21,12 @@ $("#startButton").click(function(e) {
 
 //cards loop//
 $("#startButton").click(function(){
+    let cards = $(".cards");
 const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
 for( let i=0; i < Images.length; i++){
-  let random = Math.floor(Math.random()* Images.length);
-   
-     console.log(random);
+  cards[i] = (Math.floor(Math.random()* Images.length));
+cards[i].click();
+    // console.log(cards[i]);
 };
 });
 
