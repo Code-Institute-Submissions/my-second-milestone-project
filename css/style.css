@@ -125,9 +125,10 @@ img {
   transform: rotateY(0);
  
 } 
-.card:hover.flipped {
+.card:hover.flipped{
   transform: rotateY(180deg);
 }
+
 
 
 /*media queries*/

@@ -1,14 +1,15 @@
 $(document).ready(function () {
   cardclick();
   startbutton();
- // shuffle();
+  //shuffle();
   flipcards();
 
   //click the card
   function cardclick() {
-    $(".card").click();
+    $(".card").click(function(){
     $(this).addClass(".card flipped");
-  };
+  });
+}
 
   //start the timer and shuffle cards on start button
   function startbutton() {
@@ -25,22 +26,24 @@ $(document).ready(function () {
           clearInterval(TimeOut);
         }
       }, 1000);
-      //shuffle();
+      
     });
 };
 
 //cards loop//
- /* function shuffle() {
-    $(".card").each(function(i) {
-      $(this).append("assets/images" + (++i) + ".png");
+/* function shuffle() {
+   // $(".card").each(function(i) {
+      //$(this).append("assets/images" + (++i) + ".png");
       const images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
       for (let i = 0; i < images.length; i++) {
-        // = Math.floor(Math.random() * images.length);
-        //startbutton();
-        console.log(images);
+        randomCards = Math.floor(Math.random() * images.length);
+        temp = images[i]
+        images[i] = images[randomCards];
+        images[randomCards] = temp
+        
       }
-    });
     };*/
+    
     //count the flips
 function flipcards() {
     let count = 0;
