@@ -2,6 +2,7 @@ $(document).ready(function () {
   cardclick();
   startbutton();
   //shuffle();
+  matchcards();
   flipcards();
 
   //click the card
@@ -30,20 +31,29 @@ $(document).ready(function () {
     });
 };
 
-//cards loop//
-/* function shuffle() {
-   // $(".card").each(function(i) {
-      //$(this).append("assets/images" + (++i) + ".png");
+//cards shuffle//
+/*function shuffle() {
+   $(".card").each(function() {
+      //$(this).append("assets/images" + (++i) + ".png");*/
       const images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-      for (let i = 0; i < images.length; i++) {
-        randomCards = Math.floor(Math.random() * images.length);
+      /*for (let i = 0; i < images.length; i++) {
+        randomcards = Math.floor(Math.random() * images.length);
         temp = images[i]
-        images[i] = images[randomCards];
-        images[randomCards] = temp
-        
-      }
+        images[i] = images[randomcards];
+        images[randomcards] = temp
+        console.log(shuffle);
+      };
+   });
     };*/
     
+    //match clicked card//
+    
+function matchcards(){
+    
+
+}
+
+
     //count the flips
 function flipcards() {
     let count = 0;
@@ -52,6 +62,7 @@ function flipcards() {
         $("#flips").html(count++);
       });
     });
-  
 };
+
+
   });
