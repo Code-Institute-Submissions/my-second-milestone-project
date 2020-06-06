@@ -1,7 +1,7 @@
 $(document).ready(function () {
   cardclick();
   startbutton();
-  //shuffle();
+  shuffle();
   matchcards();
   flipcards();
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
 
   //start the timer and shuffle cards on start button
   function startbutton() {
-    $("#startButton").click(function (e) {
+    $("#startButton").click(shuffle, function (e) {
       //alert(this);//
       //timer start//
       e.preventDefault();
@@ -29,22 +29,23 @@ $(document).ready(function () {
       }, 1000);
       
     });
-};
+    
+  };
 
 //cards shuffle//
 /*function shuffle() {
-   $(".card").each(function() {
-      //$(this).append("assets/images" + (++i) + ".png");*/
-      const images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png", "wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-      /*for (let i = 0; i < images.length; i++) {
-        randomcards = Math.floor(Math.random() * images.length);
-        temp = images[i]
-        images[i] = images[randomcards];
-        images[randomcards] = temp
-        console.log(shuffle);
-      };
-   });
-    };*/
+    $(".card").each(card => {
+        let randomImages = Math.floor(Math.random() * 12 +1);
+        card.style.order = randomImages;
+    });
+   /* const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+      for (let i = 0; i < Images.length; i++) {
+        let randomImages= Math.floor(Math.random() * Images.length);*/
+    
+ //};
+        
+   
+
     
     //match clicked card//
     
