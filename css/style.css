@@ -132,22 +132,37 @@ img {
 
 
 /*media queries*/
-@media screen and (max-width:300px){
+/*@media screen and (max-width:300px){
     .col-sm{
  width:50%;
     }
-}
+}*/
 
-@media screen and (max-width: 600px) {
-    .col-sm{
-        width: 100%;
+@media (max-width: 600px) {
+    body{
+          background-image: url("../assets/images/gears-background.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          border: none;
+          background-position: center center;
     }
+    
+    
+    .memory-container .memory-info-container{
+        grid-template-columns: repeat(2, auto);
+        justify-content: center;
+        align-items: center;
+      
     }
-  @media screen and (min-width: 768px){ 
-.col-sm{
-    width: 75%;
+    .memory-info{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    }
+ /* @media screen and (min-width: 768px){ 
 }
-  }
+  }*/
   
 
 
