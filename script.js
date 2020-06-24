@@ -1,7 +1,5 @@
 $(document).ready(function () {
   cardclick();
-  startbutton();
-  shuffle();
   matchcards();
   flipcards();
 
@@ -9,16 +7,23 @@ $(document).ready(function () {
   function cardclick() {
     $(".card").click(function(){
     $(this).addClass(".card flipped");
+    console.log(cardclick);
   });
-}
+};
 
   //start the timer and shuffle cards on start button
-  function startbutton() {
-    $("#startButton").click(shuffle, function (e) {
-      //alert(this);//
+ /* function startGame() {
+      let starter = 1;
+
+      startButton(starter);
+      shuffle(starter);
+  }
+  function startButton() {
+    $("#startButton").onclick(e) 
+     // alert(this);
       //timer start//
-      e.preventDefault();
-      let count = 10;
+     e.preventDefault();
+     let count = 10;
       let TimeOut = setInterval(function () {
         $("#time-remaining").html(count);
         count--;
@@ -27,32 +32,31 @@ $(document).ready(function () {
           clearInterval(TimeOut);
         }
       }, 1000);
-      
-    });
-    
-  };
+      shuffle();
+    };
 
+    
+    
 //cards shuffle//
-/*function shuffle() {
-    $(".card").each(card => {
-        let randomImages = Math.floor(Math.random() * 12 +1);
-        card.style.order = randomImages;
-    });
-   /* const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-      for (let i = 0; i < Images.length; i++) {
-        let randomImages= Math.floor(Math.random() * Images.length);*/
-    
- //};
+function shuffle() {
+      const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+    // let cardGrid = Images.concat(Images);//duplicate cards
+     //document.getElementsByClassName(".card-front");
+     console.log(Images);
+     startButton();
         
-   
+    };
+     
+startGame(starter);*/
 
-    
+
     //match clicked card//
     
 function matchcards(){
+
     
 
-}
+};
 
 
     //count the flips
@@ -62,8 +66,8 @@ function flipcards() {
       $(this).each(function() {
         $("#flips").html(count++);
       });
+      cardclick();
     });
-};
-
-
-  });
+}
+  }
+});
