@@ -4,22 +4,25 @@ $(document).ready(function () {
   flipcards();
 
   //click the card
+   let Images= document.getElementsByClassName(".card");// ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+   //cardGrid = Images.concat(Images);//duplicate cards
+   
   function cardclick() {
     $(".card").click(function(){
     $(this).addClass(".card flipped");
-    console.log(cardclick);
+     
   });
 };
 
   //start the timer and shuffle cards on start button
- /* function startGame() {
-      let starter = 1;
-
-      startButton(starter);
-      shuffle(starter);
-  }
-  function startButton() {
-    $("#startButton").onclick(e) 
+  let startGame = document.getElementById("startButton");
+  function startGame() {    
+  let start = 1;
+  a(start);
+  b(start);
+  } 
+  function a(count){
+         $("#startButton").on("click", function(e){     
      // alert(this);
       //timer start//
      e.preventDefault();
@@ -32,24 +35,33 @@ $(document).ready(function () {
           clearInterval(TimeOut);
         }
       }, 1000);
-      shuffle();
-    };
-
+      return a(count);
+    });
     
     
 //cards shuffle//
-function shuffle() {
-      const Images= ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-    // let cardGrid = Images.concat(Images);//duplicate cards
-     //document.getElementsByClassName(".card-front");
-     console.log(Images);
-     startButton();
-        
-    };
+function b(shuffle){
+      for (let i = 0; i < Images.length; i++);{
+         // $("#memory-container").append(".card");
+     // console.log(Images[i]);
+      };
+       let currentIndex = Images.length, temp, randomindex;
+         while(currentIndex !== 0){
+             randomindex = Mathfloor(Math.random() * currentIndex);
+             currentIndex -=1;
+             temp = Images[currentIndex];
+             Images[currentIndex] = Images[randomindex];
+             Images[randomindex] = temp;
+         }
+         return b(shuffle);
+        };
      
-startGame(starter);*/
+     };
+       
+  
 
-
+  
+  
     //match clicked card//
     
 function matchcards(){
@@ -68,6 +80,6 @@ function flipcards() {
       });
       cardclick();
     });
-}
-  }
+};
+  
 });
