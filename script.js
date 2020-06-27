@@ -4,7 +4,7 @@ $(document).ready(function () {
     flipcards();
 
     //click the card
-   // let Images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+  // let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
     //cardGrid = Images.concat(Images);//duplicate cards
 
     function cardclick() {
@@ -15,14 +15,8 @@ $(document).ready(function () {
     };
 
     //start the timer and shuffle cards on start button
-    //let startGameButton = document.getElementById("startButton");
-  // let  = document.getElementById(".card" + this.id);
-
-   // function startGameButton() {
-    $("#startButton").on("click", function() {
-   //let startGameButton = document.getElementById("#startButton");
    
-    //timer start//
+    $("#startButton").on("click", function() {
     function count() {
     let count = 10;
         let TimeOut = setInterval(function () {
@@ -36,23 +30,19 @@ $(document).ready(function () {
 
     };
 
-    Images = document.getElementsByClassName(".card" + this.id);
     //cards shuffle//
     function shuffle() {
-        for (let i = 0; i < Images.length; i++); {
-        
-        let currentIndex = Images.length, temp, randomindex;
-        while (currentIndex !== 0) {
-            randomindex = Mathfloor(Math.random() * currentIndex);
-            currentIndex -= 1;
-            temp = Images[currentIndex];
-            Images[currentIndex] = Images[randomindex];
-            Images[randomindex] = temp;
+        let images = $(".card" + this.id).find("img").attr("src");
+        for (let i= 0; i < images.length; i++); {
+       
+      
+            randomNumber = Math.floor(Math.random() * images.length);
+            temp = images;
+            images = images[randomNumber];
+            images[randomNumber] = temp;
+            }
+            return images;
         }
-        return Images;
-        }
-    
-    }
     count();
     shuffle();
     });
