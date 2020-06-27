@@ -4,7 +4,7 @@ $(document).ready(function () {
     flipcards();
 
     //click the card
-    let Images = document.getElementsByClassName(".card");// ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+   // let Images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
     //cardGrid = Images.concat(Images);//duplicate cards
 
     function cardclick() {
@@ -16,17 +16,15 @@ $(document).ready(function () {
 
     //start the timer and shuffle cards on start button
     //let startGameButton = document.getElementById("startButton");
-    let shuffle = document.getElementById(".card" + this.id);
+  // let  = document.getElementById(".card" + this.id);
 
-    function startGameButton() {
-        count();
-    }
+   // function startGameButton() {
+    $("#startButton").on("click", function() {
+   //let startGameButton = document.getElementById("#startButton");
+   
+    //timer start//
     function count() {
-        // $("#startButton").on("click", function(e){     
-        // alert(this);
-        //timer start//
-        e.preventDefault();
-        let count = 10;
+    let count = 10;
         let TimeOut = setInterval(function () {
             $("#time-remaining").html(count);
             count--;
@@ -38,13 +36,11 @@ $(document).ready(function () {
 
     };
 
-
+    Images = document.getElementsByClassName(".card" + this.id);
     //cards shuffle//
     function shuffle() {
         for (let i = 0; i < Images.length; i++); {
-            // $("#memory-container").append(".card");
-            // console.log(Images[i]);
-        };
+        
         let currentIndex = Images.length, temp, randomindex;
         while (currentIndex !== 0) {
             randomindex = Mathfloor(Math.random() * currentIndex);
@@ -54,17 +50,16 @@ $(document).ready(function () {
             Images[randomindex] = temp;
         }
         return Images;
-    };
+        }
     
-     
-
-
-
-
-
+    }
+    count();
+    shuffle();
+    });
+    
     //match clicked card//
-
     function matchcards() {
+    
 
 
 
