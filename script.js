@@ -1,19 +1,13 @@
 $(document).ready(function () {
-    cardclick();
-    matchcards();
-    flipcards();
-    let firstsCard = null;
-    let SecondCard = null;
+    cardClick();
+    
 
-
-    //click the card
-   //let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-    //cardGrid = Images.concat(Images);//duplicate cards
-
-    function cardclick() {
+    function cardClick() {
         $(".card").click(function () {
             $(this).addClass(".card flipped");
-
+            setTimeout(function() {
+                matchCards();
+            }, 500);
         });
     };
 
@@ -30,17 +24,18 @@ $(document).ready(function () {
                 clearInterval(TimeOut);
             }
         }, 1000);
-
+     
+    };
+    function stopCountdown() {
+        clearInterval(count);
     };
 
     //cards shuffle//
-    function shuffle() {
-        
-        
-        
-        my_images = src="/assets/images.png";
-        card_images = $(".card-front").attr("src",images[i]);
-        for (let i= 0; i < images.lenght; i++) {
+   /* function shuffle() {
+         my_images = src="/assets/images.png";
+         card_images = $(".card-front");
+         for (let i= 0; i < images.lenght; i++) {
+            //$("#memory-container").firstChild().appendTo(".card");
             randomNumber = Math.floor(Math.random() * images.length);
             temp = images;
             images = images[randomNumber];
@@ -52,16 +47,33 @@ $(document).ready(function () {
         
     count();
     shuffle();
-    };
-    
+    };*/
+
     //match clicked card//
-    function matchcards() {
-
+    function matchCards() {
+     if($(".card").length == 2) {
     
+    
+    let firstCard = $(".card").first().data(".card").val();
+    let secondCard = $(".card").last().data(".card").val();
 
-
-
-    };
+    if (firstCard == secondCard){
+        $(".selected").addClass("match");
+        checkWinGame();
+    } else {
+        $("")remove
+    }
+    
+    }
+    
+    }   
+    function checkWinGame(){
+        if($(".match").length == 12) {
+            stopCountdown();
+            //modal you won
+        }
+    }
+});
 
 
     //count the flips
