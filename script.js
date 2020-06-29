@@ -2,9 +2,12 @@ $(document).ready(function () {
     cardclick();
     matchcards();
     flipcards();
+    let firstsCard = null;
+    let SecondCard = null;
+
 
     //click the card
-  // let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+   //let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
     //cardGrid = Images.concat(Images);//duplicate cards
 
     function cardclick() {
@@ -32,23 +35,28 @@ $(document).ready(function () {
 
     //cards shuffle//
     function shuffle() {
-        let images = $(".card" + this.id).find("img").attr("src");
-        for (let i= 0; i < images.length; i++); {
-       
-      
+        
+        
+        
+        my_images = src="/assets/images.png";
+        card_images = $(".card-front").attr("src",images[i]);
+        for (let i= 0; i < images.lenght; i++) {
             randomNumber = Math.floor(Math.random() * images.length);
             temp = images;
             images = images[randomNumber];
             images[randomNumber] = temp;
-            }
-            return images;
+        } 
+        
+
         }
+        
     count();
     shuffle();
-    });
+    };
     
     //match clicked card//
     function matchcards() {
+
     
 
 
