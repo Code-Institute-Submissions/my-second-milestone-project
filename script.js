@@ -1,13 +1,13 @@
 $(document).ready(function () {
     cardClick();
-    
+    matchCards();
 
     function cardClick() {
         $(".card").click(function () {
             $(this).addClass(".card flipped");
-            setTimeout(function() {
-                matchCards();
-            }, 500);
+           // setTimeout(function() {
+              //  matchCards();
+           // }//, 500);
         });
     };
 
@@ -31,10 +31,10 @@ $(document).ready(function () {
     };
 
     //cards shuffle//
-   /* function shuffle() {
-         my_images = src="/assets/images.png";
-         card_images = $(".card-front");
-         for (let i= 0; i < images.lenght; i++) {
+  /* function shuffle() {
+       let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
+        let card_images = $(".card-front");
+         for (let i= 0; i < images.length; i++) {
             //$("#memory-container").firstChild().appendTo(".card");
             randomNumber = Math.floor(Math.random() * images.length);
             temp = images;
@@ -43,11 +43,30 @@ $(document).ready(function () {
         } 
         
 
-        }
-        
+        }*/
+        function shuffle(array) {
+    let counter = array.length;
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+        // Decrease counter by 1
+        counter--;
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return array;
+}
+   let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"]; 
+   let shuffleImages = shuffle(images);
+   let card_images = $(".card-front");    
     count();
-    shuffle();
-    };*/
+    for(i = 0;i < card_images.length;i++){
+        card_images[i].src = `assets/images/${shuffleImages[i]}`
+    }
+    });
 
     //match clicked card//
     function matchCards() {
@@ -59,9 +78,9 @@ $(document).ready(function () {
 
     if (firstCard == secondCard){
         $(".selected").addClass("match");
-        checkWinGame();
+        //checkWinGame();
     } else {
-        $("")remove
+        
     }
     
     }
