@@ -1,6 +1,6 @@
 $(document).ready(function () {
     cardClick();
-    matchCards();
+   // matchCards();
 
     function cardClick() {
         $(".card").click(function () {
@@ -24,26 +24,12 @@ $(document).ready(function () {
                 clearInterval(TimeOut);
             }
         }, 1000);
-     
     };
     function stopCountdown() {
         clearInterval(count);
     };
-
+    
     //cards shuffle//
-  /* function shuffle() {
-       let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"];
-        let card_images = $(".card-front");
-         for (let i= 0; i < images.length; i++) {
-            //$("#memory-container").firstChild().appendTo(".card");
-            randomNumber = Math.floor(Math.random() * images.length);
-            temp = images;
-            images = images[randomNumber];
-            images[randomNumber] = temp;
-        } 
-        
-
-        }*/
         function shuffle(array) {
     let counter = array.length;
     // While there are elements in the array
@@ -58,7 +44,7 @@ $(document).ready(function () {
         array[index] = temp;
     }
     return array;
-}
+   };
    let images = ["wheel-robot.png","dog-robot.png","flying-robot.png","excited-robot.png","invader-zim-robot.png","vector-robot.png"]; 
    let shuffleImages = shuffle(images);
    let card_images = $(".card-front");    
@@ -66,10 +52,12 @@ $(document).ready(function () {
     for(i = 0;i < card_images.length;i++){
         card_images[i].src = `assets/images/${shuffleImages[i]}`
     }
+    return shuffleImages;
     });
 
+
     //match clicked card//
-    function matchCards() {
+   /* function matchCards() {
      if($(".card").length == 2) {
     
     
@@ -92,7 +80,7 @@ $(document).ready(function () {
             //modal you won
         }
     }
-});
+});*/
 
 
     //count the flips
