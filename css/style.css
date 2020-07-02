@@ -97,7 +97,13 @@ img {
   border-style: none;
 }
 
-.card-front {
+ .card-front {
+  
+  background: url("../assets/images/wheel-robot.png") cover no-repeat };
+  
+  background: url("../assets/images/dog-robot.png") cover no-repeat };
+  ,url("../assets/images/dog-robot.png"), url("../assets/images/flying-robot.png"), url("../assets/images/excited-robot.png"), url("../assets/images/invader-zim-robot.png"), url("../assets/images/vector-robot.png");
+  
   width: 100%;
   height: 100%;
   padding: 5px;
@@ -111,9 +117,11 @@ img {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
  
+
 }
 
-.card-back {
+ .card-back { 
+  background: url("assets/images/steampunk-gear-clipart.png");
   width: 100%;
   height: 100%;
   padding: 0px;
@@ -128,7 +136,7 @@ img {
 /*.card:hover.flipped{
   transform: rotateY(180deg);
 }*/
-.card.flipped, .card.match {
+ .card.flipped, .card.match .card-front{
    transform: rotateY(180deg);  
 }
 
