@@ -1,20 +1,20 @@
 $(document).ready(function () {
      cardClick();
+     flipcards();
 
     function cardClick() {
     $(".card").click(function () {
       $(this).addClass("card flipped");
       matchCards();
     
-    });
-    
+    }); 
   };
 
   //start the timer and shuffle cards on start button
 
   $("#startButton").on("click", function () {
     function count() {
-      let count = 20;
+      let count = 59;
       let TimeOut = setInterval(function () {
         $("#time-remaining").html(count);
         count--;
@@ -69,35 +69,43 @@ $(document).ready(function () {
 
   //match clicked card//
  function matchCards() {
-    let firstCard = $(".card.flipped").first();
-    let secondCard = $(".card.flipped").last();
+     console.log("got here")
+    $(".card").each(function(){
+    let firstCard = $("card-front").first();
+    let secondCard = $("card-front").last();
 
-    if ($(".card.flipped").length == 2) {
-
+    if ($("card-front").length == 2){
+      
+    };
 
       if (firstCard == secondCard) {
+          console.log("this was called")
         $(".card.flipped").addClass("match");
-       
-        //checkWinGame();
-      }
+       $(".card.flipped").each(function(){
+           //cards stays open
+       });
        $(".card.flipped").removeClass("flipped");
+       };
+       });
     }
-  }
+        checkWinGame();
+      
+    //if not match
+  
   function checkWinGame() {
     if ($(".match").length == 12) {
       stopCountdown();
-      //alert or modal, you won
-    }
-  }
-
+      //alert you won
+    };
+};
   //count the flips
   function flipcards() {
-    let count = 0;
+    let count = -0;
     $(".card").click(function () {
       $(this).each(function () {
         $("#flips").html(count++);
       });
-      cardclick();
     });
-  }
+    cardClick();
+  };
 });
