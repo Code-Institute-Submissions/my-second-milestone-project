@@ -47,9 +47,8 @@ $(document).ready(function () {
       }
       return array;
     }
-    function memoryBoard(){
-    $("#memory-container").css("card-front", URL);
-    let images= [
+   
+    /*let images= [
       "wheel-robot.png",
       "dog-robot.png",
       "flying-robot.png",
@@ -62,28 +61,31 @@ $(document).ready(function () {
       "excited-robot.png",
       "invader-zim-robot.png",
       "vector-robot.png",
-    ];
+    ];*/
     
     let shuffleImages = shuffle(images);
-    let card_images = $("card-front");
+   // let card_images= $("card-front").css(background-image);
     count();
     for (i = 0; i < card_images.length; i++) {
-      card_images[i].src = `assets/images/${shuffleImages[i]}`; //backticks for imagesarray
+    card_images[i].src = /*`assets/images*/$("card-front").css(background-image);/* {(shuffleImages[i]);*///backticks for imagesarray
     }
+    
+    card_images.push(card_images[i], card_images[i]);
     return shuffleImages;
-  };
+  
 });
 
   //match clicked card//
  function matchCards() {
      console.log("got here")
-    $(".card").each(function(){
-    let flippedCards = []
+    $(".card").each(function(index){
+    
     let firstCard = $("card-front").addClass("flipped").removeClass("card-back");
     let secondCard = $("card-front").addClass("flipped").removeClass("card-back");
-    if (flippedCards
+    //if($(this).attr(card_images[i]).)
 
     if ($("card-front").length == 2){
+
       
     };
 
