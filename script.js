@@ -49,22 +49,21 @@ $(document).ready(function () {
     }
     function memoryBoard(){
     $("#memory-container").css("card-front", URL);
-    let images1 = new Array (
-      "wheel-robot.png",
-      "dog-robot.png",
-      "flying-robot.png",
-      "excited-robot.png",
-      "invader-zim-robot.png",
-      "vector-robot.png");
-      let images2 = new Array(
+    let images= [
       "wheel-robot.png",
       "dog-robot.png",
       "flying-robot.png",
       "excited-robot.png",
       "invader-zim-robot.png",
       "vector-robot.png",
-      );
-    let images = images1.concat(images2);
+      "wheel-robot.png",
+      "dog-robot.png",
+      "flying-robot.png",
+      "excited-robot.png",
+      "invader-zim-robot.png",
+      "vector-robot.png",
+    ];
+    
     let shuffleImages = shuffle(images);
     let card_images = $("card-front");
     count();
@@ -79,9 +78,10 @@ $(document).ready(function () {
  function matchCards() {
      console.log("got here")
     $(".card").each(function(){
-   
+    let flippedCards = []
     let firstCard = $("card-front").addClass("flipped").removeClass("card-back");
     let secondCard = $("card-front").addClass("flipped").removeClass("card-back");
+    if (flippedCards
 
     if ($("card-front").length == 2){
       
