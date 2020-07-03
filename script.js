@@ -2,6 +2,9 @@ $(document).ready(function () {
      cardClick();
      flipcards();
 
+
+    
+
     function cardClick() {
     $(".card").click(function () {
       $(this).addClass("card flipped");
@@ -44,35 +47,41 @@ $(document).ready(function () {
       }
       return array;
     }
-    let images = [
+    function memoryBoard(){
+    $("#memory-container").css("card-front", URL);
+    let images1 = new Array (
+      "wheel-robot.png",
+      "dog-robot.png",
+      "flying-robot.png",
+      "excited-robot.png",
+      "invader-zim-robot.png",
+      "vector-robot.png");
+      let images2 = new Array(
       "wheel-robot.png",
       "dog-robot.png",
       "flying-robot.png",
       "excited-robot.png",
       "invader-zim-robot.png",
       "vector-robot.png",
-      "wheel-robot.png",
-      "dog-robot.png",
-      "flying-robot.png",
-      "excited-robot.png",
-      "invader-zim-robot.png",
-      "vector-robot.png",
-    ];
+      );
+    let images = images1.concat(images2);
     let shuffleImages = shuffle(images);
-    let card_images = $(".card-front");
+    let card_images = $("card-front");
     count();
     for (i = 0; i < card_images.length; i++) {
       card_images[i].src = `assets/images/${shuffleImages[i]}`; //backticks for imagesarray
     }
     return shuffleImages;
-  });
+  };
+});
 
   //match clicked card//
  function matchCards() {
      console.log("got here")
     $(".card").each(function(){
-    let firstCard = $("card-front").first();
-    let secondCard = $("card-front").last();
+   
+    let firstCard = $("card-front").addClass("flipped").removeClass("card-back");
+    let secondCard = $("card-front").addClass("flipped").removeClass("card-back");
 
     if ($("card-front").length == 2){
       
