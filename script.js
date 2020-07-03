@@ -1,17 +1,13 @@
 $(document).ready(function () {
-     cardClick();
-     flipcards();
+  cardClick();
+  flipcards();
 
-
-    
-
-    function cardClick() {
+  function cardClick() {
     $(".card").click(function () {
       $(this).addClass("card flipped");
       matchCards();
-    
-    }); 
-  };
+    });
+  }
 
   //start the timer and shuffle cards on start button
 
@@ -30,7 +26,7 @@ $(document).ready(function () {
     function stopCountdown() {
       clearInterval(count);
     }
-
+    
     //cards shuffle//
     function shuffle(array) {
       let counter = array.length;
@@ -42,13 +38,13 @@ $(document).ready(function () {
         counter--;
         // And swap the last element with it
         let temp = array[counter];
-        array[counter] = array[index];
+        array[counter] = card_images[index];
         array[index] = temp;
       }
       return array;
-    }
-   
-    /*let images= [
+    };
+
+   /* let images= [
       "wheel-robot.png",
       "dog-robot.png",
       "flying-robot.png",
@@ -62,53 +58,54 @@ $(document).ready(function () {
       "invader-zim-robot.png",
       "vector-robot.png",
     ];*/
-    
-    let shuffleImages = shuffle(images);
-   // let card_images= $("card-front").css(background-image);
+  
+    let shuffleImages = shuffle();
+    let card_images = $("card-front").css(background-image);
     count();
     for (i = 0; i < card_images.length; i++) {
-    card_images[i].src = /*`assets/images*/$("card-front").css(background-image);/* {(shuffleImages[i]);*///backticks for imagesarray
+     //card_images[i].src= `assets/images/${shuffleImages[i]}`; //backticks for imagesarray
     }
-    
+
     card_images.push(card_images[i], card_images[i]);
-    return shuffleImages;
-  
-});
+    return shuffleImages([i]);
+
+  });
 
   //match clicked card//
- function matchCards() {
-     console.log("got here")
-    $(".card").each(function(index){
-    
-    let firstCard = $("card-front").addClass("flipped").removeClass("card-back");
-    let secondCard = $("card-front").addClass("flipped").removeClass("card-back");
-    //if($(this).attr(card_images[i]).)
+ /* function matchCards() {
+    console.log("got here");
+    $(".card").each(function (index) {
+      let firstCard = $("card-front")
+        .addClass("flipped")
+        .removeClass("card-back");
+      let secondCard = $("card-front")
+        .addClass("flipped")
+        .removeClass("card-back");
+      //if($(this).attr(card_images[i]).)
 
-    if ($("card-front").length == 2){
-
-      
-    };
+      if ($("card-front").length == 2) {
+      }
 
       if (firstCard == secondCard) {
-          console.log("this was called")
+        console.log("this was called");
         $(".card.flipped").addClass("match");
-       $(".card.flipped").each(function(){
-           //cards stays open
-       });
-       $(".card.flipped").removeClass("flipped");
-       };
-       });
-    }
-        checkWinGame();
-      
-    //if not match
-  
-  function checkWinGame() {
+        $(".card.flipped").each(function () {
+          //cards stays open
+        });
+        $(".card.flipped").removeClass("flipped");
+      }
+    });
+  }
+  //checkWinGame();
+
+  //if not match
+
+  /*function checkWinGame() {
     if ($(".match").length == 12) {
       stopCountdown();
       //alert you won
-    };
-};
+    }
+  }*/
   //count the flips
   function flipcards() {
     let count = -0;
@@ -118,5 +115,5 @@ $(document).ready(function () {
       });
     });
     cardClick();
-  };
+  }
 });
