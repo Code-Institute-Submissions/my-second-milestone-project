@@ -98,12 +98,6 @@ img {
 }
 
 .card-front {
-  background-image: url("../assets/images/wheel-robot.png"),
-    url("../assets/images/dog-robot.png"),
-    url("../assets/images/flying-robot.png"),
-    url("../assets/images/excited-robot.png"),
-    url("../assets/images/invader-zim-robot.png"),
-    url("../assets/images/vector-robot.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
