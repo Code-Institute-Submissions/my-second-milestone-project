@@ -3,7 +3,7 @@ $(document).ready(function () {
   flipcards();
 
   function cardClick() {
-    $(".card").click(function () {
+    $(".card").click(function() {
       $(this).addClass("card flipped");
       matchCards();
     });
@@ -26,10 +26,10 @@ $(document).ready(function () {
     function stopCountdown() {
       clearInterval(count);
     }
-    
+
     //cards shuffle//
-    function shuffle(array) {
-      let counter = array.length;
+    function shuffle(Array) {
+      let counter = Array.length;
       // While there are elements in the array
       while (counter > 0) {
         // Pick a random index
@@ -37,14 +37,14 @@ $(document).ready(function () {
         // Decrease counter by 1
         counter--;
         // And swap the last element with it
-        let temp = array[counter];
-        array[counter] = card_images[index];
-        array[index] = temp;
+        let temp = Array[counter];
+        Array[counter] = Array[index];
+        Array[index] = temp;
       }
-      return array;
+      return Array;
     };
 
-   /* let images= [
+     let images= [
       "wheel-robot.png",
       "dog-robot.png",
       "flying-robot.png",
@@ -57,33 +57,35 @@ $(document).ready(function () {
       "excited-robot.png",
       "invader-zim-robot.png",
       "vector-robot.png",
-    ];*/
+    ];
+     
   
-    let shuffleImages = shuffle();
-    let card_images = $("card-front").css(background-image);
+    let shuffleImages = shuffle(Array);
+    let card_images = $(".card").each(".card-front");
     count();
-    for (i = 0; i < card_images.length; i++) {
-     //card_images[i].src= `assets/images/${shuffleImages[i]}`; //backticks for imagesarray
+    for(i = 0; i < card_images.length; ++i) {
+        let robotimg = card_images.eq(i).children("img");
+        robotimg.attr("src", shuffleImages[i]);
+    //card_images[i].src =`assets/images/${shuffleImages[i]}`; //backticks for imagesarray
     }
-
-    card_images.push(card_images[i], card_images[i]);
-    return shuffleImages([i]);
-
+    //card_images.push(card_images[i], card_images[i]);
+    shuffleImages.push(shuffleImages[i])
+    return shuffleImages;
   });
-
+  shuffle(images);
+  
   //match clicked card//
- /* function matchCards() {
+  function matchCards() {
     console.log("got here");
-    $(".card").each(function (index) {
-      let firstCard = $("card-front")
-        .addClass("flipped")
-        .removeClass("card-back");
-      let secondCard = $("card-front")
-        .addClass("flipped")
-        .removeClass("card-back");
-      //if($(this).attr(card_images[i]).)
-
-      if ($("card-front").length == 2) {
+    let flipped = ("flipped");
+    //select card
+    $(".card").each(function () {
+      let firstCard = flipped[1];                        
+      let secondCard = flipped[2];                       
+    
+      
+      if ($("flipped").length == 2) {
+          $(this).checkMatch(flipped);
       }
 
       if (firstCard == secondCard) {
