@@ -1,146 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton&display=swap" type ="text/css"/>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Anton&display=swap"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-latest.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
     <script src="script.js" type="text/javascript"></script>
     <title>Memory Game</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1>Robot match</h1>
+    <div class="buttons">
+      <button id="startButton" type="button">Click here to start</button>
+    </div>
+    <div class="row">
+      <div id="memory-container" class="col-12 col-sm align-self-center">
+        <div class="memory-info-container fluid">
+          <div class="memory-info">
+            <p>Time:</p>
+            <span id="time-remaining">60</span>
+          </div>
+          <div class="memory-info">
+            <p>Flips:</p>
+            <span id="flips">0</span>
+          </div>
 
-<h1>Robot match</h1>
-<div class="buttons">
-<button id="startButton" type="button">Click here to start</button>
-</div>
-<div class="row">
-<div id="memory-container" class= "col-12 col-sm align-self-center">
-<div class="memory-info-container fluid">
-<div class="memory-info">
-<p>Time:</p> <span id="time-remaining">60</span> 
-</div>
-<div class="memory-info">
-<p>Flips:</p> <span id="flips">0</span>
-</div>
-
-
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-<div class="card" > 
-<div class="card-back"></div>
-<div class="card-front"></div>
-</div>
-
-<!--<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/wheel-robot.png" alt="wheel robot">
-</div>
-
-<div class="card" id="2">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/wheel-robot.png" alt="wheel robot">
-</div>
-
-<div class="card" id="3">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/dog-robot.png" alt="dog robot">
-</div>
-
-<div class="card" id="4">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/dog-robot.png" alt="dog robot">
-</div>
-
-<div class="card" id="5">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/flying-robot.png" alt="flying robot">
-</div>
-
-<div class="card" id="6">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/flying-robot.png" alt="flying robot">
-</div>
-
-<div class="card" id="7">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/excited-robot.png" alt="excited robot">
-</div>
-
-<div class="card" id="8">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/excited-robot.png" alt="excited robot">
-</div>
-
-<div class="card" id="9">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/invader-zim-robot.png" alt="invader zim robot">
-</div>
-
-<div class="card" id="10">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/invader-zim-robot.png" alt="invader zim robot">
-</div>
-
-<div class="card" id="11">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/vector-robot.png" alt="vector robot">
-</div>
-
-<div class="card" id="12">
-<img class="card-back" src="assets/images/steampunk-gear-clipart.png" alt="steampunk gear clipart">
-<img class="card-front" src="assets/images/vector-robot.png" alt="vector robot">
-</div>-->
-
-
-
-</div>
-</div>
-</div>
-</body>
+          <div class="card" id="1">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="2">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="3">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="4">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="5">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="6">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="7">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="8">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="9">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="10">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="11">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+          <div class="card" id="12">
+            <div class="card-back"></div>
+            <div class="card-front"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
