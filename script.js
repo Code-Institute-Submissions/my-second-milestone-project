@@ -26,10 +26,19 @@ $(document).ready(function () {
     function stopCountdown() {
       clearInterval(count);
     }
-
+     let images= [
+      "wheel-robot.png",
+      "dog-robot.png",
+      "flying-robot.png",
+      "excited-robot.png",
+      "invader-zim-robot.png",
+      "vector-robot.png",
+     ];
+  
+    let Array = images.concat(images);
     //cards shuffle//
-    function shuffle(Array) {
-      let counter = Array.length;
+    function shuffle(Array, images) {
+        let counter = Array.length;
       // While there are elements in the array
       while (counter > 0) {
         // Pick a random index
@@ -43,36 +52,20 @@ $(document).ready(function () {
       }
       return Array;
     };
-
-     let images= [
-      "wheel-robot.png",
-      "dog-robot.png",
-      "flying-robot.png",
-      "excited-robot.png",
-      "invader-zim-robot.png",
-      "vector-robot.png",
-      "wheel-robot.png",
-      "dog-robot.png",
-      "flying-robot.png",
-      "excited-robot.png",
-      "invader-zim-robot.png",
-      "vector-robot.png",
-    ];
-     
-  
-    let shuffleImages = shuffle(Array);
-    let card_images = $(".card").each(".card-front");
+ console.log(Array);
+    
+  /* let shuffleImages = shuffle(Array);
+    let card_images = $(".card").getAttr(`assets/images/.png`);
     count();
-    for(i = 0; i < card_images.length; ++i) {
-        let robotimg = card_images.eq(i).children("img");
-        robotimg.attr("src", shuffleImages[i]);
-    //card_images[i].src =`assets/images/${shuffleImages[i]}`; //backticks for imagesarray
-    }
+    for(i = 0; i < images.length; ++i) {
+        console.log(images.getAttr("src"));
+    card_images[i].src =`assets/images/${shuffleImages[i]}`; //backticks for imagesarray
+    }*/
     //card_images.push(card_images[i], card_images[i]);
-    shuffleImages.push(shuffleImages[i])
-    return shuffleImages;
+   // shuffleImages.push(shuffleImages[i])
+   // return shuffleImages(images);
   });
-  shuffle(images);
+  
   
   //match clicked card//
   function matchCards() {
