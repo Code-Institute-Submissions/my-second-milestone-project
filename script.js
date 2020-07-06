@@ -51,19 +51,19 @@ $(document).ready(function () {
         Array[index] = temp;
       }
       return Array;
+   //console.log(Array);
     };
- console.log(Array);
-    
-  /* let shuffleImages = shuffle(Array);
-    let card_images = $(".card").getAttr(`assets/images/.png`);
+   let shuffleImages = shuffle(images);
+   shuffle(Array);
+   let card_images = $(".card-front");
     count();
     for(i = 0; i < images.length; ++i) {
-        console.log(images.getAttr("src"));
-    card_images[i].src =`assets/images/${shuffleImages[i]}`; //backticks for imagesarray
-    }*/
-    //card_images.push(card_images[i], card_images[i]);
-   // shuffleImages.push(shuffleImages[i])
-   // return shuffleImages(images);
+    card_images[i].src =`assets/images/img.png ${shuffleImages[i]}`; //backticks for imagesarray
+    console.log();
+    };
+    card_images.push(card_images[i], card_images[i]);
+   return shuffleImages;
+
   });
   
   
