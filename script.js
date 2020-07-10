@@ -1,10 +1,19 @@
 $(document).ready(function () {
     cardClick();
     flipcards();
+    
+    let checkMatchclick = [];// checks if two cards has the same image
+    let cardCheck= [];//store id array to be able to remove "flipped" class if no match
 
     function cardClick() {
         $(".card").click(function () {
             $(this).addClass("card flipped");
+            if ($(this).find(".card").hasClass("flipped")){
+                return;
+            }
+            $(this).find(".card").toggleClass("flipped");
+            checkMatchclick.push($(this).find("img").attr("src"));
+            cardCheck.push($(this).attr("id"));
 
             console.log("clicked");
             matchCards();
@@ -59,12 +68,14 @@ $(document).ready(function () {
         console.log(shuffle(shuffleImages));
 
         count();
-       /* for (i = 0; i < images.length; ++i) {
-
+        
+        for (i = 0; i < images.length; ++i) { //images to the card-front
+           
+         
             console.log("here");
         };
         images.push(images[i], images[i]);
-        return shuffleImages;*/
+        return shuffleImages;
 
     });
 
