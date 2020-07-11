@@ -1,24 +1,25 @@
 $(document).ready(function () {
-    //cardClick();
+    cardClick();
     flipcards();
     
-    let checkMatchclick = [];// checks if two cards has the same image
-    let cardCheck= [];//store id array to be able to remove "flipped" class if no match
+  //  let checkMatchclick = [];// checks if two cards has the same image
+   // let cardCheck= [];//store id array to be able to remove "flipped" class if no match
 
     function cardClick() {
         $(".card").click(function () {
             $(this).addClass("card flipped");
-            if ($(this).find(".card").hasClass("flipped")){
+           /* if ($(this).find(".card").hasClass("flipped")){
                 return;
             }
             $(this).find(".card").toggleClass("flipped");
             checkMatchclick.push($(this).find("img").attr("src"));
-            cardCheck.push($(this).attr("id"));
+            cardCheck.push($(this).attr("id"));*/
 
             console.log("clicked");
             selectCard();
         });
-    }
+        
+    };
 
     //start the timer and shuffle cards on start button
     function startGame(){
@@ -69,15 +70,16 @@ $(document).ready(function () {
         console.log(shuffle(shuffleImages));
         
         for (i = 0; i < images.length; ++i) { //images to the card-front
-           
+            images.push(images[i], images[i]);
+
          
             console.log("here");
         };
-        images.push(images[i], images[i]);
+       
         return shuffleImages;
 
     }
-  
+    
 
 
     //match clicked card//
@@ -90,21 +92,19 @@ $(document).ready(function () {
            let firstCard = ($(".card")[1]);
             let secondCard = ($(".card")[2]);
         
-          if 
-            
-            
-            
-        checkWinGame();
-    });
+          if (firstCard == secondCard){
+              match();
+          }
+            checkWinGame();
+    };
 
     function match() {
-        if (firstCard == secondCard) {
                 console.log("this was called");
-                $(".card.flipped").addClass("match").removeClass("card.flipped");
+                $(".card.flipped").addClass(".match").removeClass("card.flipped");
                  }//if not match
-                $(".card.flipped").removeClass(".card.flipped").cardCheck();
-             }
-             selectCard();
+                $(".card.flipped").removeClass(".card.flipped");
+             
+             
     //game over if all cards are found in pairs
     function checkWinGame() {
       if ($(".match").length == 12) {
@@ -112,7 +112,7 @@ $(document).ready(function () {
         //alert you won
       }
       
-    }
+    };
 
     
     //count the flips
