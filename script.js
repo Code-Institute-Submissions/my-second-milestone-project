@@ -2,25 +2,17 @@ $(document).ready(function () {
     cardClick();
     flipcards();
     
-  //  let checkMatchclick = [];// checks if two cards has the same image
-   // let cardCheck= [];//store id array to be able to remove "flipped" class if no match
+  
 
     function cardClick() {
         $(".card").click(function () {
             $(this).addClass("card flipped");
-           /* if ($(this).find(".card").hasClass("flipped")){
-                return;
-            }
-            $(this).find(".card").toggleClass("flipped");
-            checkMatchclick.push($(this).find("img").attr("src"));
-            cardCheck.push($(this).attr("id"));*/
-
+        });
             console.log("clicked");
             selectCard();
-        });
-        
-    };
+        };
 
+        
     //start the timer and shuffle cards on start button
     function startGame(){
     $("#startButton").on("click", function () {
@@ -66,37 +58,37 @@ $(document).ready(function () {
             return Array;
             //console.log(Array);
         };
+         for (i = 0; i < images.length; ++i) { 
+            images.push(images[i], images[i]);
+            
+        }
         let shuffleImages = shuffle(Array);
         console.log(shuffle(shuffleImages));
-        
-        for (i = 0; i < images.length; ++i) { //images to the card-front
-            images.push(images[i], images[i]);
+    };
 
-         
-            console.log("here");
-        };
-       
-        return shuffleImages;
-
-    }
+    
     
 
 
     //match clicked card//
+   
     function selectCard() {
-        console.log("got here");
-        
+     document.getElementsByClassName(".card");
     
-        // add flipped class on card clicked
-        // check firstcard and secondcard match in 5sec.
+     // if no match
+     
+     // check firstcard and secondcard match in 5sec.
            let firstCard = ($(".card")[1]);
             let secondCard = ($(".card")[2]);
         
-          if (firstCard == secondCard){
+          if (firstCard === secondCard){
+              setTimeout(function(){
+                  $(".card").show("flipped").hide("card-back");
+              },500);
               match();
           }
             checkWinGame();
-    };
+        };
 
     function match() {
                 console.log("this was called");
@@ -124,7 +116,7 @@ $(document).ready(function () {
             });
             count;
         });
-        cardClick();
+        
     }
  startGame();
 });
