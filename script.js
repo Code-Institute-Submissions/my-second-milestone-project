@@ -6,11 +6,23 @@ $(document).ready(function () {
 
     function cardClick() {
         $(".card").click(function () {
-            $(this).addClass("card flipped");
+          //  $(this).each(function(){
+           if ($(this).addClass("card flipped").removeClass("card-back")){
+            console.log(this);
+        
+        } else { ($(this).hasClass("card flipped"))
+            $(this).removeClass("card flipped");
+            $(this).addClass("card-back");
+              
+        }
+         
         });
-            console.log("clicked");
+       };
+
+
+         
             selectCard();
-        };
+        
 
         
     //start the timer and shuffle cards on start button
@@ -58,13 +70,13 @@ $(document).ready(function () {
             return Array;
             //console.log(Array);
         };
-         for (i = 0; i < images.length; ++i) { 
-            images.push(images[i], images[i]);
+       //  for (i = 0; i < images.length; ++i) { 
+          //  images.push(images[i], images[i]);
             
         }
-        let shuffleImages = shuffle(Array);
-        console.log(shuffle(shuffleImages));
-    };
+       // let shuffleImages = shuffle(Array);
+        //console.log(shuffle(shuffleImages));
+    
 
     
     
