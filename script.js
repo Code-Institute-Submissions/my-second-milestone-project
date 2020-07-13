@@ -14,15 +14,11 @@ $(document).ready(function () {
             $(this).removeClass("card flipped");
             $(this).addClass("card-back");
               
-        }
-         
-        });
-       };
-
-
-         
-            selectCard();
-        
+        };
+        selectCard();
+    });
+        };
+       
 
         
     //start the timer and shuffle cards on start button
@@ -38,7 +34,10 @@ $(document).ready(function () {
                     clearInterval(TimeOut);
                 }
             }, 1000);
+            
         }
+        count();
+
     });
         function stopCountdown() {
             clearInterval(count);
@@ -70,30 +69,27 @@ $(document).ready(function () {
             return Array;
             //console.log(Array);
         };
-       //  for (i = 0; i < images.length; ++i) { 
-          //  images.push(images[i], images[i]);
+          for (i = 0; i < images.length; ++i) { 
+           $("<img>").attr("src", images[i]);
             
-        }
-       // let shuffleImages = shuffle(Array);
-        //console.log(shuffle(shuffleImages));
-    
-
-    
-    
-
+        };
+        //let shuffleImages = shuffle(Array);
+        //console.log(shuffle(shuffleImages, images));
+        shuffle(Array);
+       
+        };
+       
 
     //match clicked card//
    
     function selectCard() {
      document.getElementsByClassName(".card");
-    
-     // if no match
      
      // check firstcard and secondcard match in 5sec.
            let firstCard = ($(".card")[1]);
             let secondCard = ($(".card")[2]);
         
-          if (firstCard === secondCard){
+          if (firstCard == secondCard){
               setTimeout(function(){
                   $(".card").show("flipped").hide("card-back");
               },500);
@@ -101,7 +97,7 @@ $(document).ready(function () {
           }
             checkWinGame();
         };
-
+       selectCard();
     function match() {
                 console.log("this was called");
                 $(".card.flipped").addClass(".match").removeClass("card.flipped");
