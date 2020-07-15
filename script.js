@@ -5,7 +5,9 @@ $(document).ready(function () {
 
   function cardClick() {
     $(".card").click(function () {
+      
       if ($(this).addClass("card flipped").removeClass("card-back")) {
+         
         //console.log("clicked")
       } else {
         $(this).hasClass("card flipped");
@@ -18,6 +20,7 @@ $(document).ready(function () {
  let count = 59;
   //start the timer and shuffle cards on start button
   function startGame() {
+      
     $("#startButton").on("click", function () {
       function count() {
         let TimeOut = setInterval(function () {
@@ -62,26 +65,19 @@ $(document).ready(function () {
         temp = robotimg[counter];
         robotimg[counter] = robotimg[index];
         robotimg[index] = temp;
+        $(".card").attr("src", "../assets/images/.png");
+      };
+      $(".card").each(function(index){
+          $(this).attr("src",robotimg[index]); 
+        
+    });
+      console.log(robotimg);
+       return robotimg; 
       }
-     console.log(robotimg);
-       return robotimg;
-      
-     
+        shuffle(robotimg);
     };
-    shuffle(robotimg);
-    //let shuffleImages = shuffle(robotimg);
-    /*console.log(shuffleImages);
-    let card_images = robotimg;
-    for (i = 0; i < images.length; ++i) {
-      card_images[i].src = `assets/images/img.png ${shuffleImages[i]}`; //backticks for imagesarray
-      //console.log(shuffleImages);
-      
-    }
-    
-    card_images.push(card_images[i], card_images[i]);
-    return shuffleImages;*/
-      
-  }
+   
+   
    
   //match clicked card//
 
