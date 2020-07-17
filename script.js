@@ -4,8 +4,9 @@ $(document).ready(function () {
   
 
   function cardClick() {
-    $(".card").click(function () {
-      
+    $(".card").click(function() {
+    // $(this).children("img").css("card","img");
+     //  $(".card").attr//(".card-front");//("src","assets/images/.png");
       if ($(this).addClass("card flipped").removeClass("card-back")) {
          
         //console.log("clicked")
@@ -14,14 +15,15 @@ $(document).ready(function () {
         $(this).removeClass("card flipped");
         $(this).addClass("card-back");
       }
-      selectCard();
+      return cardClick;
     });
+    // selectCard();
   }
  let count = 59;
   //start the timer and shuffle cards on start button
   function startGame() {
       
-    $("#startButton").on("click", function () {
+    $("#startButton").on("click", function(count) {
       function count() {
         let TimeOut = setInterval(function () {
           $("#time-remaining").html(count);
@@ -32,12 +34,14 @@ $(document).ready(function () {
           }
         }, 1000);
        
-      }
-      startGame(count);
+      };
+       shuffle(robotimg);
     });
-    function stopCountdown() {
+    
+   /* function stopCountdown() {
       clearInterval(count);
-    }
+    }*/
+    
     let images = [
       "wheel-robot.png",
       "dog-robot.png",
@@ -73,17 +77,19 @@ $(document).ready(function () {
     });
       console.log(robotimg);
        return robotimg; 
+       
       }
         shuffle(robotimg);
+        
     };
-   
+
    
    
   //match clicked card//
 
-  function selectCard() {
-    document.getElementsByClassName(".card");
-
+ /* function selectCard() {
+   // document.getElementsByClassName(".card");
+    // $(".card").attr("src","assets/images/.png");
     // check firstcard and secondcard match in 5sec.
     let firstCard = $(".card")[1];
     let secondCard = $(".card")[2];
@@ -109,7 +115,7 @@ $(document).ready(function () {
       stopCountdown(count);
       //alert you won
     }
-  }
+  }*/
 
   //count the flips
   function flipcards() {
