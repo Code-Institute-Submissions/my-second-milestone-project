@@ -10,21 +10,23 @@ $(document).ready(function () {
     ];
 
     let robotimg = images.concat(images);
-  
+
+  let openCard = [];
+  let matchedCard = [];
   cardClick();
   flipcards();
   
 
-  function cardClick() {
+  function cardClick() {                                        //timer on flip 2 cards is in noMatchcard
     $(".card").click(function() {
    
       if ($(this).hasClass("card flipped")){                     //if card clicked two times it turns back
-          $(this).show(".card-back").removeClass("card flipped");
-        $(this).addClass("card-front");
+          $(this).show("card-back").removeClass("card flipped");
+          $(this).addClass("card-front");
         console.log("clicked");
-      } else{
-           $(this).addClass("card flipped"); 
-           $(this).removeClass("card-back");
+     }else{
+         $(this).addClass("card flipped"); 
+         $(this).removeClass("card-back");
       }
       return cardClick;
     });
@@ -47,14 +49,12 @@ $(document).ready(function () {
         }, 1000);
        
       }
-       shuffle(robotimg);
-       count();
+       shuffle(robotimg);  
     });
-    
     
     function stopCountdown() {
       clearInterval(count);
-    }
+    };
     
     //cards shuffle//
 
@@ -83,7 +83,7 @@ $(document).ready(function () {
        
       }
         shuffle(robotimg);
-       
+       count();
     };
 
    
@@ -91,32 +91,53 @@ $(document).ready(function () {
   //match clicked card//
 
     function selectCard() {
-    // check firstcard and second card match in 5sec.
-    let firstCard = $(".card")[1];
-    let secondCard = $(".card")[2];
-
-    if (firstCard == secondCard) {
-      setTimeout(function () {
-        $(".card").show("card flipped").hide("card-back");
-      }, 500);
+    // check 2 open cards
+    if (images.length === 2 ){
+        // disable to do more click on other cards before checking
+    
+    }// is it a match
+    if (images.length === 2 && openCard[0].src === openCard[1].src) {
+      match(); // check match function
+      console.log("matched!")
+    
+    // if not a match 
+    } else (images.length === 2 && openCard[0].src === openCard[1].src) { 
+     noMatchedCard();
+     console.log("not matched");
     }
-   match();
     //checkWinGame();
+    
   };
   
   function match() {
-    console.log("this was called");
-  } //if not match
-  $(".card flipped").removeClass(".card flipped");
+   // keep cards open if match
 
-  //game over if all cards are found in pairs
- /* function checkWinGame() {
+   // set time to check if card match within 3 sek
+
+   // keep on click on other cards
+
+  
+  //game won if all cards are found in pairs
+    function checkWinGame() {
     if ($(".match").length == 12) {
       stopCountdown(count);
       //alert you won
-    }*/
+    }
     cardClick();
-  //};
+  };
+  // no matching cards
+  function noMatchedCard(){
+      if (images.length < = 1) {
+          return;
+      }
+   
+      
+
+  
+  
+
+  }
+
 
   //count the flips
   function flipcards() {
