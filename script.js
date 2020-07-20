@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    let openCards = [];
+    let matchedCards = [];
 
     let imagesRoot = "assets/images/";
     let images = [
@@ -12,54 +14,57 @@ $(document).ready(function () {
     ];
 
     let robotimg = images.concat(images);
-    let openCards = [];
-    let matchedCards = [];
-
+    
+    selectCard();
     flipcards();
     
     //match clicked card//
 
      function selectCard(card) {
         //add selected card to openCards
-         openCards.push(card)
+         openCards.push(card);
     // check 2 open cards
     if (openCards.length === 2 ){
        // is it a match
-    if (openCards[0].find("img").attr("src") === openCards[1].find("img").attr("src")) {
+    if (openCards[0].find(".img").attr("src") === openCards[1].find(".img").attr("src")) {
       match(); // check match function
-      console.log("matched!")
+      console.log("matched!");
     
     // if not a match 
     } else { 
      noMatchedCard();
      console.log("not matched");
     }
-}
-    //checkWinGame();
-    return selectCard;
-  };
+   }
+    checkWinGame();
+    }
   
   function match() {
-   // keep cards open if match
-
-   // set time to check if card match within 3 sek
-
-   // keep on click on other cards
-
-  
+  // set time to check if card match within 3 sek
+  setTimeout(function() {
+      matchedCards = [];
+  }, 1500);
+  return;
+}
+  match();
   //game won if all cards are found in pairs
     function checkWinGame() {
     if ($(".match").length == 12) {
       stopCountdown(count);
-      //alert you won
-      return checkWinGame;
+      alert(Yey, Congratulations);
+      matchedCards = [];
     }
-    cardClick();
-  };
+    
+  }
+   
   // no matching cards
   function noMatchedCard(){
-      if (images.length < = 1) {
-          return;
+      //reset cards after 3 s
+     setTimeout(function() {
+         openCards.forEach(card => card.removeClass("card flipped").addClass("card"));
+         //emty/reset openCards array
+         openCards =[];
+     }, 1500);
       }
 
 
@@ -80,18 +85,17 @@ $(document).ready(function () {
         robotimg[counter] = robotimg[index];
         robotimg[index] = temp;
        
-      };
+      }
       $(".card-front").each(function(index){
           $(this).attr("src", imagesRoot + robotimg[index]); 
         
     });
       console.log(robotimg);
-       return shuffle(robotimg); 
-       };
-       
-    }
+       //return shuffle(robotimg); 
+       }
+       shuffle(robotimg);
+    
 
-                                          //timer on flip 2 cards is in noMatchcard
     $(".card").click(function() {
    
       if ($(this).hasClass("card flipped") && (openCard.length !== 2)){                     //if card clicked two times it turns back
@@ -99,14 +103,16 @@ $(document).ready(function () {
         $(this).removeClass(".card-back");
         selectCard($(this));
       }
+       selectCard(); 
     });
-     
+   
     flipcards();
   
 
   //start the timer and shuffle cards on start button
     $("#startButton").on("click", function() {
-      function count() {
+        count();
+        function count() {
         let count = 59;
         let TimeOut = setInterval(function () {
           $("#time-remaining").html(count);
@@ -117,13 +123,14 @@ $(document).ready(function () {
           } 
         }, 1000);
        
-      }
-       shuffle(robotimg);  
+    }
+       shuffle(robotimg); 
+       
     });
     
     function stopCountdown() {
       clearInterval(count);
-    };
+    }
 
   //count the flips
   function flipcards() {
@@ -132,7 +139,7 @@ $(document).ready(function () {
       $(this).each(function () {
         $("#flips").html(count++);
       });
-      count;
+      
     });
   }
 
