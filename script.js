@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+
     let imagesRoot = "assets/images/";
     let images = [
       "wheel-robot.png",
@@ -10,53 +12,58 @@ $(document).ready(function () {
     ];
 
     let robotimg = images.concat(images);
+    let openCards = [];
+    let matchedCards = [];
 
-  let openCard = [];
-  let matchedCard = [];
-  cardClick();
-  flipcards();
+    flipcards();
+    
+    //match clicked card//
+
+     function selectCard(card) {
+        //add selected card to openCards
+         openCards.push(card)
+    // check 2 open cards
+    if (openCards.length === 2 ){
+       // is it a match
+    if (openCards[0].find("img").attr("src") === openCards[1].find("img").attr("src")) {
+      match(); // check match function
+      console.log("matched!")
+    
+    // if not a match 
+    } else { 
+     noMatchedCard();
+     console.log("not matched");
+    }
+}
+    //checkWinGame();
+    return selectCard;
+  };
   
+  function match() {
+   // keep cards open if match
 
-  function cardClick() {                                        //timer on flip 2 cards is in noMatchcard
-    $(".card").click(function() {
-   
-      if ($(this).hasClass("card flipped")){                     //if card clicked two times it turns back
-          $(this).show("card-back").removeClass("card flipped");
-          $(this).addClass("card-front");
-        console.log("clicked");
-     }else{
-         $(this).addClass("card flipped"); 
-         $(this).removeClass("card-back");
-      }
-      return cardClick;
-    });
-     selectCard();
-  }
+   // set time to check if card match within 3 sek
 
-  //start the timer and shuffle cards on start button
-  function startGame() {
-     
-    $("#startButton").on("click", function() {
-      function count() {
-        let count = 59;
-        let TimeOut = setInterval(function () {
-          $("#time-remaining").html(count);
-          count--;
-          if (count === -1) {
-            alert("Time's Up, Try Again!");
-            clearInterval(TimeOut);
-          } 
-        }, 1000);
-       
+   // keep on click on other cards
+
+  
+  //game won if all cards are found in pairs
+    function checkWinGame() {
+    if ($(".match").length == 12) {
+      stopCountdown(count);
+      //alert you won
+      return checkWinGame;
+    }
+    cardClick();
+  };
+  // no matching cards
+  function noMatchedCard(){
+      if (images.length < = 1) {
+          return;
       }
-       shuffle(robotimg);  
-    });
-    
-    function stopCountdown() {
-      clearInterval(count);
-    };
-    
-    //cards shuffle//
+
+
+      //cards shuffle//
 
     function shuffle(robotimg) {
       let counter = robotimg.length,
@@ -79,65 +86,44 @@ $(document).ready(function () {
         
     });
       console.log(robotimg);
-       return robotimg; 
+       return shuffle(robotimg); 
+       };
+       
+    }
+
+                                          //timer on flip 2 cards is in noMatchcard
+    $(".card").click(function() {
+   
+      if ($(this).hasClass("card flipped") && (openCard.length !== 2)){                     //if card clicked two times it turns back
+        $(this).addClass("card flipped");
+        $(this).removeClass(".card-back");
+        selectCard($(this));
+      }
+    });
+     
+    flipcards();
+  
+
+  //start the timer and shuffle cards on start button
+    $("#startButton").on("click", function() {
+      function count() {
+        let count = 59;
+        let TimeOut = setInterval(function () {
+          $("#time-remaining").html(count);
+          count--;
+          if (count === -1) {
+            alert("Time's Up, Try Again!");
+            clearInterval(TimeOut);
+          } 
+        }, 1000);
        
       }
-        shuffle(robotimg);
-       count();
+       shuffle(robotimg);  
+    });
+    
+    function stopCountdown() {
+      clearInterval(count);
     };
-
-   
-   
-  //match clicked card//
-
-    function selectCard() {
-    // check 2 open cards
-    if (images.length === 2 ){
-        // disable to do more click on other cards before checking
-    
-    }// is it a match
-    if (images.length === 2 && openCard[0].src === openCard[1].src) {
-      match(); // check match function
-      console.log("matched!")
-    
-    // if not a match 
-    } else (images.length === 2 && openCard[0].src === openCard[1].src) { 
-     noMatchedCard();
-     console.log("not matched");
-    }
-    //checkWinGame();
-    
-  };
-  
-  function match() {
-   // keep cards open if match
-
-   // set time to check if card match within 3 sek
-
-   // keep on click on other cards
-
-  
-  //game won if all cards are found in pairs
-    function checkWinGame() {
-    if ($(".match").length == 12) {
-      stopCountdown(count);
-      //alert you won
-    }
-    cardClick();
-  };
-  // no matching cards
-  function noMatchedCard(){
-      if (images.length < = 1) {
-          return;
-      }
-   
-      
-
-  
-  
-
-  }
-
 
   //count the flips
   function flipcards() {
@@ -149,5 +135,5 @@ $(document).ready(function () {
       count;
     });
   }
-  startGame();
+
 });
