@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-    let openCards = [];
-    let matchedCards = [];
-
     let imagesRoot = "assets/images/";
     let images = [
       "wheel-robot.png",
@@ -14,19 +11,20 @@ $(document).ready(function () {
     ];
 
     let robotimg = images.concat(images);
-    
+    let selectedCard = [];
+   
     selectCard();
     flipcards();
     
     //match clicked card//
 
      function selectCard(card) {
-        //add selected card to openCards
-         openCards.push(card);
+        //add selected card to selectedCard
+         selectedCard.push(card);
     // check 2 open cards
-    if (openCards.length === 2 ){
+    if (selectedCard.length === 2 ){
        // is it a match
-    if (openCards[0].find(".img").attr("src") === openCards[1].find(".img").attr("src")) {
+    if (selectedCard[1].find(".img").attr("src") === selectedCard[2].find(".img").attr("src")) {
       match(); // check match function
       console.log("matched!");
     
@@ -35,6 +33,7 @@ $(document).ready(function () {
      noMatchedCard();
      console.log("not matched");
     }
+    
    }
     checkWinGame();
     }
@@ -42,9 +41,9 @@ $(document).ready(function () {
   function match() {
   // set time to check if card match within 3 sek
   setTimeout(function() {
-      matchedCards = [];
+      selectedCard = [];
   }, 1500);
-  return;
+  
 }
   match();
   //game won if all cards are found in pairs
@@ -52,20 +51,20 @@ $(document).ready(function () {
     if ($(".match").length == 12) {
       stopCountdown(count);
       alert(Yey, Congratulations);
-      matchedCards = [];
+      
     }
     
-  }
+  };
    
   // no matching cards
   function noMatchedCard(){
       //reset cards after 3 s
      setTimeout(function() {
-         openCards.forEach(card => card.removeClass("card flipped").addClass("card"));
+         selectedCard.forEach(card => card.removeClass("card flipped").addClass("card"));
          //emty/reset openCards array
-         openCards =[];
+         selectedCard =[];
      }, 1500);
-      }
+      };
 
 
       //cards shuffle//
@@ -98,9 +97,9 @@ $(document).ready(function () {
 
     $(".card").click(function() {
    
-      if ($(this).hasClass("card flipped") && (openCard.length !== 2)){                     //if card clicked two times it turns back
+      if (!$(this).hasClass("card flipped") && (selectedCard.length !== 2)){                     
         $(this).addClass("card flipped");
-        $(this).removeClass(".card-back");
+        $(this > ".card-back").hide(); //child of
         selectCard($(this));
       }
        selectCard(); 
@@ -134,10 +133,10 @@ $(document).ready(function () {
 
   //count the flips
   function flipcards() {
-    let count = 1;
+    let flipCounter = 1;
     $(".card").click(function () {
       $(this).each(function () {
-        $("#flips").html(count++);
+        $("#flips").html(flipCounter++);
       });
       
     });
