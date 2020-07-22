@@ -17,15 +17,14 @@ $(document).ready(function () {
 
   //match clicked card//
 
-  function selectCard(card) {
+  function selectCard(robotimg) {
     //add selected card to selectedCard
-    selectedCard.push(card);
+    selectedCard.push(robotimg);
     // check 2 open cards
     if (selectedCard.length === 2) {
       // is it a match
-      if (
-        selectedCard[1].find(".img").attr("src") === selectedCard[2].find(".img").attr("src"))
-       {
+      if ($(".card") + selectedCard[0].find(".img").attr("src") === $(".card") + selectedCard[1].find(".img").attr("src"));
+      
         match(); // check match function
         console.log("matched!");
 
@@ -33,12 +32,15 @@ $(document).ready(function () {
       } else {
         noMatchedCard();
         console.log("not matched");
-      }
+      
     }
     checkWinGame();
   }
 
   function match() {
+       if ($(".match").length == 2) {
+         $(".card").removeClass("card flipped").addClass("card");
+       }
     // set time to check if card match within 3 sek
     setTimeout(function () {
       selectedCard = [];
@@ -57,12 +59,12 @@ $(document).ready(function () {
   function noMatchedCard() {
     //reset cards after 3 s
     setTimeout(function () {
-      selectedCard.forEach((card) =>
-        card.removeClass("card flipped").addClass("card")
+      selectedCard.forEach(() => 
+      $(".card").removeClass("card flipped").addClass("card")
       );
       //emty/reset openCards array
       selectedCard = [];
-    }, 1500);
+       }, 1500);
   }
 
   //cards shuffle//
@@ -104,9 +106,9 @@ $(document).ready(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
       $(this > ".card-back").hide(); //child of
-      selectCard($(this));
+      
     }
-    selectCard();
+    selectCard($(this));
   });
 
   flipcards();
