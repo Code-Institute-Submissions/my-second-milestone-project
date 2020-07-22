@@ -105,6 +105,8 @@ $(document).ready(function () {
     });
   }
 
+  // function restart here//
+
   $(".card").click(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
