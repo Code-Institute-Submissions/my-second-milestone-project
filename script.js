@@ -11,7 +11,8 @@ $(document).ready(function () {
 
   let robotimg = images.concat(images);
   let selectedCard = [];
-
+  let matchedCard = [];
+ 
   selectCard();
   flipcards();
 
@@ -21,10 +22,10 @@ $(document).ready(function () {
     //add selected card to selectedCard
     selectedCard.push(robotimg);
     // check 2 open cards
-    if (selectedCard.length === 2) {
+    if (selectedCard.length == 2) {
       // is it a match
-      if ($(".card") + selectedCard[0].find(".img").attr("src") === $(".card") + selectedCard[1].find(".img").attr("src"));
-      
+      if (selectedCard[0].find(".img").attr("src") === selectedCard[1].find(".img").attr("src"));
+     
         match(); // check match function
         console.log("matched!");
 
@@ -40,11 +41,13 @@ $(document).ready(function () {
   function match() {
        if ($(".match").length == 2) {
          $(".card").removeClass("card flipped").addClass("card");
+          matchedCard = [];
        }
     // set time to check if card match within 3 sek
-    setTimeout(function () {
+       setTimeout(function () {
       selectedCard = [];
-    }, 1500);
+      }, 1500);
+      
   }
   match();
   //game won if all cards are found in pairs
