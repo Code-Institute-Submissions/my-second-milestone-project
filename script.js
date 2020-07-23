@@ -28,33 +28,35 @@ $(document).ready(function () {
      
         match(); // check match function
         console.log("matched!");
-
+      
         // if not a match
-      } else {
+       } else {
         noMatchedCard();
         console.log("not matched");
       
     }
-    checkWinGame();
+   
   }
 
   function match() {
        if ($(".match").length == 2) {
-         $(".card").removeClass("card flipped").addClass("card");
-          matchedCard = [];
+         $(".card").removeClass("card flipped").addclass("card");
+          matchedCard.push(this);
        }
-    // set time to check if card match within 3 sek
+  /*  // set time to check if card match within 3 sek
        setTimeout(function () {
       selectedCard = [];
-      }, 1500);
-      
+      }, 1500);*/
+       
   }
-  match();
+    //match();
+   checkWinGame();
   //game won if all cards are found in pairs
   function checkWinGame() {
     if ($(".match").length == 12) {
       stopCountdown(count);
       alert(Yey, Congratulations);
+      restart();
     }
   }
 
@@ -105,15 +107,17 @@ $(document).ready(function () {
     });
   }
 
-  // function restart here//
+    function restart() {
+     flipCounter = 0;
+    }
 
   $(".card").click(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
       $(this > ".card-back").hide(); //child of
-      
+       selectCard($(this));
     }
-    selectCard($(this));
+   
   });
 
   flipcards();
@@ -129,13 +133,14 @@ $(document).ready(function () {
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
+          
         }
       }, 1000);
     }
     shuffle(robotimg);
   });
 
-  function stopCountdown() {
+    function stopCountdown() {
     clearInterval(count);
   }
 });
