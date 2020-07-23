@@ -54,7 +54,7 @@ $(document).ready(function () {
   //game won if all cards are found in pairs
   function checkWinGame() {
     if ($(".match").length == 12) {
-      stopCountdown(count);
+      stopCountdown();
       alert(Yey, Congratulations);
       restart();
     }
@@ -140,7 +140,7 @@ $(document).ready(function () {
     shuffle(robotimg);
   });
 
-    function stopCountdown() {
-    clearInterval(count);
-  }
+   // function stopCountdown() {
+   // clearInterval();
+  //}
 });
