@@ -8,7 +8,7 @@ $(document).ready(function () {
     "invader-zim-robot.png",
     "vector-robot.png",
   ];
-
+  
   let robotimg = images.concat(images);
   let selectedCard = [];
   let matchedCard = [];
@@ -25,7 +25,7 @@ $(document).ready(function () {
     if (selectedCard.length == 2) {
       // is it a match
       if (selectedCard[0].find(".img").attr("src") === selectedCard[1].find(".img").attr("src"));
-      
+        selectedCard =[];
         match(); // check match function
         console.log("matched!");
       
@@ -39,26 +39,17 @@ $(document).ready(function () {
   }
 
   function match() {
-       if ($(".match").length == 2) {
-         $(".card").removeClass("card flipped").addclass("card");
-         $(this).toggleClass("card flipped");
-          
-       }
-  /*  // set time to check if card match within 3 sek
-       setTimeout(function () {
+       if ($(".match").length === 2) {
+         $(".card").addClass("card flipped").removeClass("card-back");
+         selectCard();
+       }  
+       
+       //set time to check if card match within sek
+      /* setTimeout(function () {
       selectedCard = [];
       }, 1500);*/
-       
-  }
-    //match();
-   checkWinGame();
-  //game won if all cards are found in pairs
-  function checkWinGame() {
-    if ($(".match").length == 12) {
-      alert(Yey, Congratulations);
-      restart();
-    }
-  }
+    
+  };
 
   // no matching cards
   function noMatchedCard() {
@@ -70,6 +61,15 @@ $(document).ready(function () {
       //emty/reset openCards array
       selectedCard = [];
        }, 3000);
+  }
+   
+   checkWinGame();
+  //game won if all cards are found in pairs
+  function checkWinGame() {
+    if ($(".match").length == 12) {
+      alert(Yey, Congratulations);
+      restart();
+    }
   }
 
   //cards shuffle//
@@ -108,16 +108,17 @@ $(document).ready(function () {
   }
 
     function restart() {
-     flipCounter = 0;
+     flipCounter.innerHtml = "0";
+     clearInterval(flipcards);
     }
 
   $(".card").click(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
-      $(this > ".card-back").hide(); //child of
-       selectCard($(this));
+      $(this > ".card-back").hide(); //child of//
+      selectCard($(this));
     }
-   
+     
   });
 
   flipcards();
@@ -133,14 +134,13 @@ $(document).ready(function () {
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
-          
+          restart();
         }
       }, 1000);
     }
     shuffle(robotimg);
+
   });
 
-   // function stopCountdown() {
-   // clearInterval();
-  //}
+   
 });
