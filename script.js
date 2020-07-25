@@ -25,7 +25,7 @@ $(document).ready(function () {
     if (selectedCard.length == 2) {
       // is it a match
       if (selectedCard[0].find(".img").attr("src") === selectedCard[1].find(".img").attr("src"));
-        selectedCard =[];
+        matchedCard.push(selectedCard[0], selectedCard[1]);
         match(); // check match function
         console.log("matched!");
       
@@ -41,7 +41,7 @@ $(document).ready(function () {
   function match() {
        if ($(".match").length === 2) {
          $(".card").addClass("card flipped").removeClass("card-back");
-         selectCard();
+         
        }  
        
        //set time to check if card match within sek
@@ -107,9 +107,9 @@ $(document).ready(function () {
     });
   }
 
-    function restart() {
-     flipCounter.innerHtml = "0";
-     clearInterval(flipcards);
+     function restart() {
+     $("#flips").html(0);
+     
     }
 
   $(".card").click(function () {
@@ -126,6 +126,7 @@ $(document).ready(function () {
   //start the timer and shuffle cards on start button
   $("#startButton").on("click", function () {
     count();
+    restart();
     function count() {
       let count = 59;
       let TimeOut = setInterval(function () {
@@ -134,12 +135,12 @@ $(document).ready(function () {
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
-          restart();
+          
         }
       }, 1000);
     }
     shuffle(robotimg);
-
+    
   });
 
    
