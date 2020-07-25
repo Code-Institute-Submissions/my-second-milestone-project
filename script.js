@@ -25,7 +25,7 @@ $(document).ready(function () {
     if (selectedCard.length == 2) {
       // is it a match
       if (selectedCard[0].find(".img").attr("src") === selectedCard[1].find(".img").attr("src"));
-     
+      
         match(); // check match function
         console.log("matched!");
       
@@ -41,7 +41,8 @@ $(document).ready(function () {
   function match() {
        if ($(".match").length == 2) {
          $(".card").removeClass("card flipped").addclass("card");
-          matchedCard.push(this);
+         $(this).toggleClass("card flipped");
+          
        }
   /*  // set time to check if card match within 3 sek
        setTimeout(function () {
@@ -54,7 +55,6 @@ $(document).ready(function () {
   //game won if all cards are found in pairs
   function checkWinGame() {
     if ($(".match").length == 12) {
-      stopCountdown();
       alert(Yey, Congratulations);
       restart();
     }
@@ -69,7 +69,7 @@ $(document).ready(function () {
       );
       //emty/reset openCards array
       selectedCard = [];
-       }, 1500);
+       }, 3000);
   }
 
   //cards shuffle//
