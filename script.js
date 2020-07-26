@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () {                 //varibles//
   let imagesRoot = "assets/images/";
   let images = [
     "wheel-robot.png",
@@ -12,12 +12,13 @@ $(document).ready(function () {
   let robotimg = images.concat(images);
   let selectedCard = [];
   let matchedCard = [];
+  let flipCounter = 0;
  
   selectCard();
   flipcards();
 
   //match clicked card//
-
+                                                           //functions//
   function selectCard(robotimg) {
     //add selected card to selectedCard
     selectedCard.push(robotimg);
@@ -26,14 +27,16 @@ $(document).ready(function () {
       // is it a match
       if (selectedCard[0].find(".img").attr("src") === selectedCard[1].find(".img").attr("src"));
         matchedCard.push(selectedCard[0], selectedCard[1]);
-        match(); // check match function
-        console.log("matched!");
+         setTimeout(function () {
+      match(); // check match function
+      }, 500);
+         console.log("matched!");
       
         // if not a match
        } else {
         noMatchedCard();
         console.log("not matched");
-      
+       
     }
    
   }
@@ -41,14 +44,9 @@ $(document).ready(function () {
   function match() {
        if ($(".match").length === 2) {
          $(".card").addClass("card flipped").removeClass("card-back");
-         
-       }  
+         $(this).show(".card-front");
        
-       //set time to check if card match within sek
-      /* setTimeout(function () {
-      selectedCard = [];
-      }, 1500);*/
-    
+       }
   };
 
   // no matching cards
@@ -99,7 +97,7 @@ $(document).ready(function () {
 
   //count the flips
   function flipcards() {
-    let flipCounter = 1;
+   // let flipCounter = 1;
     $(".card").click(function () {
       $(this).each(function () {
         $("#flips").html(flipCounter++);
@@ -108,10 +106,10 @@ $(document).ready(function () {
   }
 
      function restart() {
-     $("#flips").html(0);
-     
-    }
-
+     flipcards();
+      $(".card" > ".card-front").hide();
+    } 
+                                                         //jqery//   
   $(".card").click(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
@@ -126,7 +124,6 @@ $(document).ready(function () {
   //start the timer and shuffle cards on start button
   $("#startButton").on("click", function () {
     count();
-    restart();
     function count() {
       let count = 59;
       let TimeOut = setInterval(function () {
@@ -135,7 +132,7 @@ $(document).ready(function () {
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
-          
+          restart();
         }
       }, 1000);
     }
