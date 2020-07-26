@@ -12,7 +12,7 @@ $(document).ready(function () {                 //varibles//
   let robotimg = images.concat(images);
   let selectedCard = [];
   let matchedCard = [];
-  let flipCounter = 0;
+  let flipCounter = [];
  
   selectCard();
   flipcards();
@@ -29,7 +29,7 @@ $(document).ready(function () {                 //varibles//
         matchedCard.push(selectedCard[0], selectedCard[1]);
          setTimeout(function () {
       match(); // check match function
-      }, 500);
+      }, 1500);
          console.log("matched!");
       
         // if not a match
@@ -97,7 +97,7 @@ $(document).ready(function () {                 //varibles//
 
   //count the flips
   function flipcards() {
-   // let flipCounter = 1;
+   let flipCounter = 1;
     $(".card").click(function () {
       $(this).each(function () {
         $("#flips").html(flipCounter++);
@@ -107,6 +107,7 @@ $(document).ready(function () {                 //varibles//
 
      function restart() {
      flipcards();
+      flipCounter = 0;
       $(".card" > ".card-front").hide();
     } 
                                                          //jqery//   
@@ -132,11 +133,11 @@ $(document).ready(function () {                 //varibles//
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
-          restart();
         }
       }, 1000);
     }
     shuffle(robotimg);
+    restart();
     
   });
 
