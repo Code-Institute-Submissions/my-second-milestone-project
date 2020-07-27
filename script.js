@@ -22,19 +22,22 @@ $(document).ready(function () {
     //add selected card to selectedCard
     //selectedCard.push(robotimg);
     // check 2 open cards
-      if (selectedCard.length == 0){
+    
+    let selectedCard = robotimg;
+    let matchedCard = robotimg;
+    
+
+      if (selectedCard == 0){
       selectedCard.push(robotimg);
       }
-       if (selectedCard.length == 1){
-      selectedCard.push(robotimg);
+       if (matchedCard == 1){
+      matchedCard.push(robotimg);
        }
         selectedCard = [];
        
       // is it a match
-      if (selectedCard[0] ($(this).attr("src")) === selectedCard[1] ($(this).attr("src"))){
-       
-       
-         match(); // check match function
+      if (selectedCard === matchedCard){
+        match(); // check match function
          console.log("matched!");
       
         // if not a match
@@ -123,10 +126,9 @@ $(document).ready(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
       $(this > ".card-back").hide(); //child of//
-     // console.log(this);
-     
+     // console.log(this); 
     }
-      
+     selectCard(); 
   });
 
   flipcards();
@@ -137,7 +139,7 @@ $(document).ready(function () {
     function count() {
       let count = 59;
       let TimeOut = setInterval(function () {
-        $("#time-remaining").html(count--);
+        $("#time-remaining").text(count--);
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
