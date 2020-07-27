@@ -49,7 +49,7 @@ $(document).ready(function () {
   function match() {
       if(!$(this).hasClass("card flipped") && (selectedCard.length == 2)){
        setTimeout (function(){
-           matchedCard = [];
+           selectedCard = [];
         }, 1500);
         }
        }
@@ -59,12 +59,12 @@ $(document).ready(function () {
   function noMatchedCard() {
     //reset cards after 3 s
     setTimeout(function () {
-      selectedCard.forEach(() => 
-      card => card.removeClass("card flipped").addClass("card")
-      );
+      selectedCard.forEach(
+      card => card.removeClass("card flipped").addClass("card"));
+      
       //emty/reset openCards array
       selectedCard = [];
-       }, 3000);
+       }, 1500);
        
   }
    
