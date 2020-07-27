@@ -140,13 +140,6 @@ img {
   -webkit-transform: rotateY(180deg);
 }
 
-/*media queries*/
-/*@media screen and (max-width:300px){
-    .col-sm{
- width:50%;
-    }
-}*/
-
 @media (max-width: 600px) {
   body {
     background-image: url("../assets/images/gears-background.jpg");
@@ -166,6 +159,4 @@ img {
     align-items: center;
   }
 }
-/* @media screen and (min-width: 768px){ 
-}
-  }*/
+
