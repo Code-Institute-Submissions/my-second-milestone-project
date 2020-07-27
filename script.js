@@ -1,4 +1,4 @@
-$(document).ready(function () {                 /*varibles*/
+$(document).ready(function () {                
   let imagesRoot = "assets/images/";
   let images = [
     "wheel-robot.png",
@@ -17,7 +17,7 @@ $(document).ready(function () {                 /*varibles*/
   flipcards();
 
   //match clicked card//
-                                                           /*functions*/
+                                                           
   function selectCard(robotimg) {
     //add selected card to selectedCard
     //selectedCard.push(robotimg);
@@ -29,13 +29,12 @@ $(document).ready(function () {                 /*varibles*/
       selectedCard.push(robotimg);
        }
         selectedCard = [];
-
-      // is it a match
-      if (selectedCard[0].find("img").attr("src") === selectedCard[1].find("img").attr("src")){
-       //if(!$(this).hasClass("card flipped") && (selectedCard.length == 2));
        
-      match(); // check match function
-     
+      // is it a match
+      if (selectedCard[0] ($(this).attr("src")) === selectedCard[1] ($(this).attr("src"))){
+       
+       
+         match(); // check match function
          console.log("matched!");
       
         // if not a match
@@ -43,14 +42,16 @@ $(document).ready(function () {                 /*varibles*/
         noMatchedCard();
         console.log("not matched");
     }
+    
    checkWinGame();
   };
-
+  
   function match() {
+      if(!$(this).hasClass("card flipped") && (selectedCard.length == 2)){
        setTimeout (function(){
            matchedCard = [];
         }, 1500);
-       
+        }
        }
   
 
@@ -64,6 +65,7 @@ $(document).ready(function () {                 /*varibles*/
       //emty/reset openCards array
       selectedCard = [];
        }, 3000);
+       
   }
    
    checkWinGame();
@@ -116,9 +118,8 @@ $(document).ready(function () {                 /*varibles*/
       flipCounter = 0;
       $(".card" > ".card-front").hide();
     } 
-                                                         //jqery//   
+
   $(".card").click(function () {
-      selectCard();
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
       $(this > ".card-back").hide(); //child of//
