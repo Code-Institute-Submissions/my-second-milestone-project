@@ -1,4 +1,4 @@
-$(document).ready(function () {                
+$(document).ready(function () {
   let imagesRoot = "assets/images/";
   let images = [
     "wheel-robot.png",
@@ -8,70 +8,60 @@ $(document).ready(function () {
     "invader-zim-robot.png",
     "vector-robot.png",
   ];
-  
+
   let robotimg = images.concat(images);
   let selectedCard = [];
   let matchedCard = [];
   let flipCounter = [];
- 
+
   flipcards();
 
   //match clicked card//
-                                                           
+
   function selectCard(robotimg) {
     //add selected card to selectedCard
-     selectedCard.push(robotimg);
+    selectedCard.push(robotimg);
     // check 2 open cards
-    
-
-     /* if (selectedCard.length == 0){
-      selectedCard.push(robotimg);
-      }
-       if (selectedCard == 1){
-      selectedCard.push(robotimg);
-       }*/
-    if (selectedCard.length == 2){
-       if (selectedCard[0].find("img").attr("src") === selectedCard[1].find("img").attr("src")){
-      // is it a match
-      
+    if (selectedCard.length == 2) {
+      if (
+        selectedCard[0].find("img").attr("src") ===
+        selectedCard[1].find("img").attr("src")
+      ) {
+        // is it a match
         match(); // check match function
-         console.log("matched!");
-      
+        console.log("matched!");
+        checkWinGame();
         // if not a match
-       } else {      
+      } else {
         noMatchedCard();
         console.log("not matched");
+      }
     }
-}
-   checkWinGame();
-  };
-  
-  function match() {
-      if(!$(this).hasClass("card flipped") && (selectedCard.length == 2)){
-       setTimeout (function(){
-           selectedCard = [];
-        }, 1500);
-        }
-       }
-  
+  }
 
+  function match() {
+    if (!$(this).hasClass("card flipped") && selectedCard.length == 2) {
+      setTimeout(function () {
+        selectedCard = [];
+      }, 1500);
+      checkWinGame();
+    }
+  }
   // no matching cards
   function noMatchedCard() {
     //reset cards after 3 s
     setTimeout(function () {
-      selectedCard.forEach(
-      card => card.removeClass("card flipped").addClass("card"));
-      
+      selectedCard.forEach((card) =>
+        card.removeClass("card flipped").addClass("card")
+      );
       //emty/reset openCards array
       selectedCard = [];
-       }, 1500);
-       
+    }, 1500);
   }
-   
-   checkWinGame();
+
   //game won if all cards are found in pairs
   function checkWinGame() {
-    if ($(".match").length == 12) {
+    if (selectedCard.length == 12) {
       alert(Yey, Congratulations);
       matchedCard = [];
       restart();
@@ -79,7 +69,6 @@ $(document).ready(function () {
   }
 
   //cards shuffle//
-
   function shuffle(robotimg) {
     let counter = robotimg.length,
       temp,
@@ -99,13 +88,12 @@ $(document).ready(function () {
       $(this).attr("src", imagesRoot + robotimg[index]);
     });
     console.log(robotimg);
-    //return shuffle(robotimg);
   }
   shuffle(robotimg);
 
   //count the flips
   function flipcards() {
-   let flipCounter = 1;
+    let flipCounter = 1;
     $(".card").click(function () {
       $(this).each(function () {
         $("#flips").html(flipCounter++);
@@ -113,22 +101,22 @@ $(document).ready(function () {
     });
   }
 
-     function restart() {
-     flipcards();
-      flipCounter = 0;
-      $(".card" > ".card-front").hide();
-    } 
+  function restart() {
+    flipcards();
+    flipCounter = 0;
+    $(".card" > ".card-front").hide();
+    $(this).addClass("card flipped");
+    window.location.reload();
+  }
 
   $(".card").click(function () {
     if (!$(this).hasClass("card flipped") && selectedCard.length !== 2) {
       $(this).addClass("card flipped");
       $(this > ".card-back").hide(); //child of//
-     // console.log(this); 
-     selectCard($(this));
+      // console.log(this);
+      selectCard($(this));
     }
-    // selectCard(); 
   });
-
   flipcards();
 
   //start the timer and shuffle cards on start button
@@ -141,10 +129,11 @@ $(document).ready(function () {
         if (count === -1) {
           alert("Time's Up, Try Again!");
           clearInterval(TimeOut);
+          restart();
         }
       }, 1000);
     }
     shuffle(robotimg);
-    restart(); 
-  });  
+    //restart();
+  });
 });
