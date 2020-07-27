@@ -20,32 +20,29 @@ $(document).ready(function () {
                                                            
   function selectCard(robotimg) {
     //add selected card to selectedCard
-    //selectedCard.push(robotimg);
+     selectedCard.push(robotimg);
     // check 2 open cards
     
-    let selectedCard = robotimg;
-    let matchedCard = robotimg;
-    
 
-      if (selectedCard == 0){
+     /* if (selectedCard.length == 0){
       selectedCard.push(robotimg);
       }
-       if (matchedCard == 1){
-      matchedCard.push(robotimg);
-       }
-        selectedCard = [];
-       
+       if (selectedCard == 1){
+      selectedCard.push(robotimg);
+       }*/
+    if (selectedCard.length == 2){
+       if (selectedCard[0].find("img").attr("src") === selectedCard[1].find("img").attr("src")){
       // is it a match
-      if (selectedCard === matchedCard){
+      
         match(); // check match function
          console.log("matched!");
       
         // if not a match
-       } else { 
+       } else {      
         noMatchedCard();
         console.log("not matched");
     }
-    
+}
    checkWinGame();
   };
   
@@ -127,8 +124,9 @@ $(document).ready(function () {
       $(this).addClass("card flipped");
       $(this > ".card-back").hide(); //child of//
      // console.log(this); 
+     selectCard($(this));
     }
-     selectCard(); 
+    // selectCard(); 
   });
 
   flipcards();
